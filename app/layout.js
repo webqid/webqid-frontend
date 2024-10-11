@@ -13,8 +13,8 @@ const geistMono = localFont({
 });
 
 export const metadata = {
-  title: "WEBQID - Unlocking the Power of Web3",
-  description: "Web3 Development and Consulting",
+  title: "webqid - Web3 Development and Consultancy",
+  description: "Unlocking the Power of Web3 - Web3 Development and Consultancy",
 };
 
 export default function RootLayout({ children }) {
