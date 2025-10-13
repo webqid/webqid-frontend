@@ -23,10 +23,9 @@ export default function Home() {
       <section className="h-screen flex flex-col items-center justify-center">
         <motion.h1
           style={{ scale, y, opacity }}
-          className="text-7xl font-medium tracking-tight"
+          className="text-7xl font-medium tracking-tight relative after:content-['.'] after:text-teal-400 after:text-9xl after:-ml-2 after:font-[geist-mono]"
         >
           webqid
-          <span className="text-[oklch(70.4%_0.14_182.503)]">.</span>
         </motion.h1>
 
         <motion.p
