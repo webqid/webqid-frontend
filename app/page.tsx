@@ -17,19 +17,19 @@ export default function Home() {
   return (
     <div
       ref={ref}
-      className="min-h-[200vh] bg-gradient-to-br from-[#0A0A0A] to-[#111111] text-[#EDEDED]"
+      className="min-h-[200vh] bg-gradient-to-br from-[#0A0A0A] to-[#111111] text-neutral-200"
     >
       {/* Hero */}
       <section className="h-screen flex flex-col items-center justify-center">
         <motion.h1
           style={{ scale, y, opacity }}
-          className="text-7xl font-medium tracking-tight relative after:content-['.'] after:text-teal-400 after:text-9xl after:-ml-2 after:font-[geist-mono]"
+          className="text-7xl font-medium tracking-tight relative after:content-['.'] after:text-teal-400 after:text-8xl after:-ml-1 after:font-[geist-mono]"
         >
           webqid
         </motion.h1>
 
         <motion.p
-          className="mt-6 text-lg text-zinc-400 font-light"
+          className="mt-6 text-xl text-zinc-400 font-light"
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.3, duration: 0.8, ease: "easeOut" }}
