@@ -52,7 +52,7 @@ export default function Home() {
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
-            viewport={{ once: true }}
+            viewport={{ once: false, amount: 0.3 }}
             className="text-4xl font-semibold"
           >
             Work
@@ -62,7 +62,7 @@ export default function Home() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
-            viewport={{ once: true }}
+            viewport={{ once: false, amount: 0.3 }}
             className="text-zinc-400 max-w-2xl mx-auto font-light leading-relaxed"
           >
             Selected projects that show how precision, design, and trust come together.
@@ -86,7 +86,7 @@ export default function Home() {
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
-            viewport={{ once: true }}
+            viewport={{ once: false, amount: 0.3 }}
             className="text-4xl font-semibold"
           >
             Solutions
@@ -96,7 +96,7 @@ export default function Home() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
-            viewport={{ once: true }}
+            viewport={{ once: false, amount: 0.3 }}
             className="text-zinc-400 max-w-2xl mx-auto font-light leading-relaxed"
           >
             From concept and design systems to complete Web3-ready applications.
@@ -135,7 +135,7 @@ export default function Home() {
                 initial={{ opacity: 0, y: 40 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: i * 0.1, ease: "easeOut" }}
-                viewport={{ once: true }}
+                viewport={{ once: false, amount: 0.3 }}
                 className="rounded-xl border border-neutral-800 bg-neutral-900/40 p-6 text-left space-y-2 hover:border-accent transition-colors"
               >
                 <h3 className="text-lg font-medium text-zinc-200">{item.title}</h3>
@@ -166,7 +166,7 @@ export default function Home() {
             initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1, duration: 0.8, ease: "easeOut" }}
-            viewport={{ once: true }}
+            viewport={{ once: false, amount: 0.3 }}
             className="text-zinc-400 font-light leading-relaxed max-w-2xl mx-auto"
           >
             webqid. is a high-end engineering studio crafting frontends with the
