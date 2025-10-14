@@ -33,24 +33,24 @@ export default function Header() {
         <div className="hidden md:flex">
           <NavigationMenu>
             <NavigationMenuList>
-              <NavigationMenuItem>
+              {/* <NavigationMenuItem>
                 <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
                   <Link href="#work">work</Link>
                 </NavigationMenuLink>
-              </NavigationMenuItem>
+              </NavigationMenuItem> */}
               <NavigationMenuItem>
                 <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
-                  <Link href="/">solutions</Link>
+                  <Link href="#solutions">solutions</Link>
                 </NavigationMenuLink>
               </NavigationMenuItem>
               <NavigationMenuItem>
                 <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
-                  <Link href="/">studio</Link>
+                  <Link href="#studio">studio</Link>
                 </NavigationMenuLink>
               </NavigationMenuItem>
               <NavigationMenuItem>
                 <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
-                  <Link href="/">contact</Link>
+                  <Link href="/contact">contact</Link>
                 </NavigationMenuLink>
               </NavigationMenuItem>
             </NavigationMenuList>
@@ -84,9 +84,9 @@ export default function Header() {
         className="md:hidden border-t border-neutral-800/50 bg-[#0A0A0A]/95 backdrop-blur-md"
       >
         <div className="container py-6 flex flex-col space-y-4 text-zinc-400 text-base">
-          <Link href="/work" onClick={() => setOpen(false)}>work</Link>
-          <Link href="/solutions" onClick={() => setOpen(false)}>solutions</Link>
-          <Link href="/studio" onClick={() => setOpen(false)}>studio</Link>
+          {/* <Link href="#work" onClick={() => setOpen(false)}>work</Link> */}
+          <Link href="#solutions" onClick={() => setOpen(false)}>solutions</Link>
+          <Link href="#studio" onClick={() => setOpen(false)}>studio</Link>
           <Link href="/contact" onClick={() => setOpen(false)}>contact</Link>
         </div>
       </motion.div>

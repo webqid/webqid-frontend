@@ -36,7 +36,7 @@ export default function Footer() {
                 <div>
                     <h3 className="text-zinc-200 mb-3">Studio</h3>
                     <ul className="space-y-2">
-                        <li><a href="#">About</a></li>
+                        <li><a href="/about">About</a></li>
                         {/* <li><a href="#">Philosophy</a></li> */}
                         <li><a href="#">Brand</a></li>
                     </ul>
