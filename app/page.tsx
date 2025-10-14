@@ -17,9 +17,9 @@ export default function Home() {
   return (
     <div
       ref={ref}
-      className="min-h-[200vh] bg-gradient-to-br from-[#0A0A0A] to-[#111111] text-neutral-200"
+      className="min-h-[200vh] text-neutral-200 flex flex-col"
     >
-      {/* Hero */}
+      {/* ───────────────── HERO ───────────────── */}
       <section className="h-screen flex flex-col items-center justify-center">
         <motion.h1
           style={{ scale, y, opacity }}
@@ -38,29 +38,35 @@ export default function Home() {
         </motion.p>
       </section>
 
-      {/* Content */}
-      <section className="h-[100vh] flex flex-col justify-center items-center space-y-8 text-center px-8">
-        <motion.h2
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
-          viewport={{ once: true }}
-          className="text-4xl font-semibold"
-        >
-          Precision-built frontend & Web3 systems
-        </motion.h2>
+      {/* ───────────────── CONTENT ───────────────── */}
+      <section
+        id="work"
+        className="flex-1 flex flex-col justify-center items-center text-center"
+      >
+        <div className="container space-y-8">
+          <motion.h2
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+            viewport={{ once: true }}
+            className="text-4xl font-semibold"
+          >
+            Precision-built frontend & Web3 systems
+          </motion.h2>
 
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
-          viewport={{ once: true }}
-          className="text-zinc-400 max-w-2xl font-light leading-relaxed"
-        >
-          Turning on-chain complexity into fast, elegant, and dependable user interfaces.
-          Engineered with care — designed for trust.
-        </motion.p>
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
+            viewport={{ once: true }}
+            className="text-zinc-400 max-w-2xl mx-auto font-light leading-relaxed"
+          >
+            Turning on-chain complexity into fast, elegant, and dependable user interfaces.
+            Engineered with care — designed for trust.
+          </motion.p>
+        </div>
       </section>
+    
     </div>
   );
 }
