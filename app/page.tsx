@@ -2,6 +2,8 @@
 
 import { motion, useScroll, useTransform } from "motion/react";
 import { useRef } from "react";
+import { Carousel } from "@/components/ui/carousel";
+import { CarouselPage } from "@/components/Carousel";
 
 export default function Home() {
   const ref = useRef<HTMLDivElement>(null);
@@ -37,7 +39,7 @@ export default function Home() {
           Built with intent.
         </motion.p>
       </section>
-
+    
       {/* ───────────────── CONTENT ───────────────── */}
       <section
         id="work"
@@ -61,12 +63,15 @@ export default function Home() {
             viewport={{ once: true }}
             className="text-zinc-400 max-w-2xl mx-auto font-light leading-relaxed"
           >
-            Turning on-chain complexity into fast, elegant, and dependable user interfaces.
+            Turning on-chain complexity into fast, elegant, and dependable user interfaces.<br />
             Engineered with care — designed for trust.
           </motion.p>
+          {/* <CarouselPage /> */}
         </div>
       </section>
-    
+
+     
+
     </div>
   );
 }
