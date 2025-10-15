@@ -1,36 +1,94 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# webqid.
 
-## Getting Started
+**Precision-built Web3 frontends — engineered for trust, scalability, and performance.**
 
-First, run the development server:
+![webqid og-image](https://www.webqid.com/og-image.png)
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+---
+
+## 🧱 Overview
+
+**webqid.** is a high-end Web2 + Web3 frontend framework focused on **technical minimalism** and **human precision**.  
+It bridges complex on-chain architectures with fast, dependable user interfaces — designed to feel calm, intentional, and timeless.
+
+Built with:
+- **Next.js 15 (App Router)**
+- **TypeScript**
+- **TailwindCSS + ShadCN/UI**
+- **Motion**
+- **Wagmi + viem + Ethers.js**
+
+---
+
+## ⚙️ Stack Philosophy
+
+Every component, animation, and token is built *with intent*:
+
+| Principle | Description |
+|------------|--------------|
+| **Calm authority** | Code that speaks softly but clearly. |
+| **Technical elegance** | Simplicity with depth — no noise, no waste. |
+| **Performance first** | Optimized rendering, minimal dependencies. |
+| **Scalable design** | Modular and brand-agnostic — for long-term use. |
+
+---
+
+## 🧩 Structure
+
+```
+app/
+ ┣ components/        → UI blocks & layouts
+ ┣ hooks/             → Reusable logic (wallets, scroll, animation)
+ ┣ lib/               → Config, constants, helpers
+ ┣ public/            → Static assets (og-image, icons)
+ ┣ styles/            → Global styles & variables
+ ┗ page.tsx           → Root entry
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+---
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 🎨 Branding
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+| Element | Value |
+|----------|--------|
+| **Font** | Geist Sans / Geist Mono |
+| **Primary** | `#0A0A0A` (black) |
+| **Accent** | `#00E0B8` (mint-teal) |
+| **Text** | `#EDEDED` |
+| **Subtle** | `#A3A3A3` |
 
-## Learn More
+**Typography system** follows the principle:  
+> “Every word has a function — every pixel a purpose.”
 
-To learn more about Next.js, take a look at the following resources:
+---
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 🪶 Motion
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Built with [Motion](https://motion.dev/docs/react) using soft ease-out transitions (`0.6s`).  
+No show — only flow.
 
-## Deploy on Vercel
+---
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 🚀 Development
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```bash
+# Install dependencies
+npm install
+
+# Run locally
+npm run dev
+
+# Build for production
+npm run build
+```
+
+---
+
+## 🧭 License
+
+MIT © [webqid.](https://webqid.com)
+
+---
+
+> _Built with intent._  
+> _Where precision meets trust._
