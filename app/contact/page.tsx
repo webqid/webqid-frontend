@@ -6,7 +6,7 @@ export default function Page() {
         <div className="container py-24 md:py-32">
             <section className="max-w-2xl mx-auto text-center space-y-8">
                 <h1 className="text-5xl md:text-6xl font-semibold tracking-tight">
-                    Contact
+                    contact
                     <span className="after:content-['.'] after:text-teal-500 after:ml-1 after:font-[geist-mono]" />
                 </h1>
 
