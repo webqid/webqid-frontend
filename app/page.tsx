@@ -182,10 +182,10 @@ export default function Home() {
             className="w-full h-[480px] md:h-[560px] lg:h-[600px] overflow-hidden"
           >
             <Image
-              src="/studio.png"
+              src="/studio.jpg"
               alt="Studio workspace"
-              width={1600}
-              height={600}
+              width={1280}
+              height={731}
               className="w-full h-full object-cover opacity-80"
               priority
             />

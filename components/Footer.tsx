@@ -5,7 +5,7 @@ export default function Footer() {
                 {/* Logo */}
                 <div className="col-span-2 row-span-2 md:row-span-1 sm:col-span-1">
                     <a href="#" className="text-2xl font-medium text-zinc-200">
-                        webqid<span className="text-teal-400">.</span>
+                        webqid<span className="text-teal-400 font-serif">.</span>
                     </a>
 
                 </div>
