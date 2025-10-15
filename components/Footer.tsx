@@ -5,7 +5,7 @@ export default function Footer() {
                 {/* Logo */}
                 <div className="col-span-2 row-span-2 md:row-span-1 sm:col-span-1">
                     <a href="#" className="text-2xl font-medium text-zinc-200">
-                        webqid<span className="text-teal-400 font-serif">.</span>
+                        webqid<span className="text-teal-500 font-serif">.</span>
                     </a>
 
                 </div>
@@ -38,7 +38,7 @@ export default function Footer() {
                     <ul className="space-y-2">
                         <li><a href="/about">About</a></li>
                         {/* <li><a href="#">Philosophy</a></li> */}
-                        <li><a href="#">Brand</a></li>
+                        {/* <li><a href="#">Brand</a></li> */}
                     </ul>
                 </div>
 
@@ -46,10 +46,10 @@ export default function Footer() {
                 <div>
                     <h3 className="text-zinc-200 mb-3">Connect</h3>
                     <ul className="space-y-2">
-                        <li><a href="#">Contact</a></li>
+                        <li><a href="/contact">Contact</a></li>
                         <li><a href="https://x.com/webqid">X</a></li>
-                        <li><a href="#">GitHub</a></li>
-                        <li><a href="#">LinkedIn</a></li>
+                        {/* <li><a href="#">GitHub</a></li> */}
+                        {/* <li><a href="#">LinkedIn</a></li> */}
                     </ul>
                 </div>
 

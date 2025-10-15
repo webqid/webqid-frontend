@@ -26,7 +26,7 @@ export default function Header() {
       <div className="container flex items-center justify-between h-14">
         {/* Logo */}
         <Link href="/" className="font-medium tracking-tight text-2xl">
-          webqid<span className="text-teal-400 font-serif">.</span>
+          webqid<span className="text-teal-500 font-serif">.</span>
         </Link>
 
         {/* Desktop navigation */}
@@ -40,12 +40,12 @@ export default function Header() {
               </NavigationMenuItem> */}
               <NavigationMenuItem>
                 <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
-                  <Link href="#solutions">solutions</Link>
+                  <Link href="/#solutions">solutions</Link>
                 </NavigationMenuLink>
               </NavigationMenuItem>
               <NavigationMenuItem>
                 <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
-                  <Link href="#studio">studio</Link>
+                  <Link href="/#studio">studio</Link>
                 </NavigationMenuLink>
               </NavigationMenuItem>
               <NavigationMenuItem>
@@ -85,8 +85,8 @@ export default function Header() {
       >
         <div className="container py-6 flex flex-col space-y-4 text-zinc-400 text-base">
           {/* <Link href="#work" onClick={() => setOpen(false)}>work</Link> */}
-          <Link href="#solutions" onClick={() => setOpen(false)}>solutions</Link>
-          <Link href="#studio" onClick={() => setOpen(false)}>studio</Link>
+          <Link href="/#solutions" onClick={() => setOpen(false)}>solutions</Link>
+          <Link href="/#studio" onClick={() => setOpen(false)}>studio</Link>
           <Link href="/contact" onClick={() => setOpen(false)}>contact</Link>
         </div>
       </motion.div>

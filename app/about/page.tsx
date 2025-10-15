@@ -6,7 +6,7 @@ export default function Page() {
             <section className="max-w-3xl mx-auto space-y-8 text-center">
                 <h1 className="text-5xl md:text-6xl font-semibold tracking-tight">
                     About
-                    <span className="after:content-['.'] after:text-teal-400 after:ml-1 after:font-[geist-mono]" />
+                    <span className="after:content-['.'] after:text-teal-500 after:ml-1 after:font-[geist-mono]" />
                 </h1>
 
                 <p className="text-zinc-400 font-light leading-relaxed">

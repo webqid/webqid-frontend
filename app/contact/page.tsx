@@ -7,7 +7,7 @@ export default function Page() {
             <section className="max-w-2xl mx-auto text-center space-y-8">
                 <h1 className="text-5xl md:text-6xl font-semibold tracking-tight">
                     Contact
-                    <span className="after:content-['.'] after:text-teal-400 after:ml-1 after:font-[geist-mono]" />
+                    <span className="after:content-['.'] after:text-teal-500 after:ml-1 after:font-[geist-mono]" />
                 </h1>
 
                 <p className="text-zinc-400 font-light leading-relaxed">
@@ -18,7 +18,7 @@ export default function Page() {
                     For collaborations, inquiries, or project discussions, reach out anytime at{" "}
                     <Link
                         href="mailto:hello@webqid.com"
-                        className="text-teal-400 hover:text-teal-300 transition-colors font-medium"
+                        className="text-teal-500 hover:text-teal-300 transition-colors font-medium"
                     >
                         hello@webqid.com
                     </Link>.
