@@ -139,7 +139,7 @@ export default function Home() {
                 className="rounded-xl border border-neutral-800 bg-neutral-900/40 p-6 text-left space-y-2 hover:border-accent transition-colors"
               >
                 <h3 className="text-lg font-medium text-zinc-200">{item.title}</h3>
-                <p className="text-zinc-500 text-sm leading-relaxed">{item.desc}</p>
+                <p className="text-zinc-400 text-sm leading-relaxed">{item.desc}</p>
               </motion.div>
             ))}
           </div>
