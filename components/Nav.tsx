@@ -18,6 +18,7 @@ export default function Header() {
 
   return (
     <motion.nav
+      aria-label="Main navigation"
       initial={{ opacity: 0, y: -10 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6, ease: "easeOut" }}
@@ -30,7 +31,7 @@ export default function Header() {
         </Link>
 
         {/* Desktop navigation */}
-        <div className="hidden md:flex">
+        <div id="main-menu" className="hidden md:flex">
           <NavigationMenu>
             <NavigationMenuList>
               {/* <NavigationMenuItem>
@@ -61,6 +62,9 @@ export default function Header() {
         <Button
           variant="ghost"
           size="icon"
+          aria-label={open ? "Close main menu" : "Open main menu"}
+          aria-expanded={open}
+          aria-controls="mobile-menu"
           onClick={() => setOpen(!open)}
           className="md:hidden text-zinc-400 hover:text-zinc-100 transition hover:bg-transparent"
         >
@@ -70,7 +74,9 @@ export default function Header() {
 
       {/* Mobile menu panel */}
       <motion.div
+        id="mobile-menu"
         initial={false}
+        aria-hidden={!open}
         animate={open ? "open" : "closed"}
         variants={{
           open: { opacity: 1, y: 0, display: "block" },
