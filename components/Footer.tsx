@@ -48,7 +48,7 @@ export default function Footer() {
                 <div>
                     <h3 className="text-zinc-200 mb-3">Connect</h3>
                     <ul className="space-y-2">
-                        <li><Link href="/contact">Contact</Link></li>
+                        {/* <li><Link href="/contact">Contact</Link></li> */}
                         <li>
                             <a
                                 href="https://x.com/webqid"
@@ -63,7 +63,6 @@ export default function Footer() {
                                     height={16}
                                     className="inline-block mr-2 mb-1"
                                 />
-                                @webqid
                             </a>
                         </li>
                         <li>
@@ -79,7 +78,7 @@ export default function Footer() {
                                     height={16}
                                     className="inline-block mr-2 mb-1"
                                 />
-                            GitHub
+                            
                             </a>
                         </li>
                         {/* <li><a href="#">LinkedIn</a></li> */}
