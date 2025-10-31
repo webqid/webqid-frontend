@@ -1,3 +1,4 @@
+import PayOff from "@/components/PayOff";
 import { Separator } from "@/components/ui/separator";
 
 export default function Page() {
@@ -26,16 +27,7 @@ export default function Page() {
                 </p>
             </section>
 
-            <Separator className="my-16 md:my-24" />
-
-            <section className="mt-24  pt-12 text-center">
-                <h2 className="text-xl font-medium text-zinc-300 mb-3">
-                    Built with intent.
-                </h2>
-                <p className="text-zinc-400 text-sm">
-                    webqid. — precision-built frontends for Web3 and beyond.
-                </p>
-            </section>
+            <PayOff />
         </div>
     );
 }

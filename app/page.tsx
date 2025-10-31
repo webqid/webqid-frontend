@@ -21,7 +21,9 @@ export default function Home() {
       {/* ───────────── HERO ───────────── */}
       <section className="h-screen flex flex-col items-center justify-center relative overflow-hidden">
         <motion.h1
-          style={{ scale: useTransform(scrollYProgress, [0, 0.5], [1, 0.65]), y: workY, opacity }}
+           initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.3, duration: 0.8, ease: "easeOut" }}
           className="text-7xl font-medium tracking-tight relative after:content-['.'] after:text-teal-500 after:text-8xl after:-ml-1 after:font-[geist-mono]"
         >
           webqid
@@ -32,6 +34,7 @@ export default function Home() {
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.3, duration: 0.8, ease: "easeOut" }}
+          
         >
           Built with intent.
         </motion.p>

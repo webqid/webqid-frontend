@@ -86,6 +86,7 @@
   }
 
   a {
+   
     color: var(--color-text);
     text-decoration: none;
     transition: opacity 0.25s ease-out;
@@ -93,6 +94,7 @@
 
   a:hover {
     opacity: 0.8;
+     @apply cursor-pointer;
   }
 
   ::selection {
