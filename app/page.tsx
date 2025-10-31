@@ -4,6 +4,7 @@ import { motion, useScroll, useTransform } from "motion/react";
 import { useRef } from "react";
 import Image from "next/image";
 import { CarouselPage } from "@/components/Carousel";
+import TechMarquee from "@/components/TechMarquee";
 
 export default function Home() {
   const ref = useRef<HTMLDivElement>(null);
@@ -16,12 +17,39 @@ export default function Home() {
   const workY = useTransform(scrollYProgress, [0, 1], [0, -60]);
   const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0.7]);
 
+  const solutions = [
+    {
+      title: "Web3 Frontend Engineering",
+      desc: "High-performance apps built with Next.js, TypeScript, and Tailwind. Fast, predictable, and built to scale without friction.",
+    },
+    {
+      title: "Design Systems in Code",
+      desc: "Consistent, accessible UI components — engineered directly in code for clarity, speed, and long-term maintainability.",
+    },
+    {
+      title: "Figma-to-Web Implementation",
+      desc: "From Figma file to production-ready frontend. Pixel-perfect translation with clean, optimized, and accessible code.",
+    },
+    {
+      title: "API & Realtime Data",
+      desc: "GraphQL, REST, and WebSocket integrations that turn complex data into clear, real-time interfaces users can trust.",
+    },
+    {
+      title: "Wallet & Trading Integrations",
+      desc: "Seamless wallet and exchange connections using RainbowKit, Wagmi, Viem, and Hyperliquid APIs — secure, smooth, and ready to trade.",
+    },
+    {
+      title: "Deployment & Performance",
+      desc: "Deployed on Vercel with edge rendering, analytics, and monitoring. Tuned for speed, reliability, and continuous improvement.",
+    },
+  ]
+
   return (
     <div ref={ref} className="text-neutral-200 flex flex-col">
       {/* ───────────── HERO ───────────── */}
-      <section className="h-screen flex flex-col items-center justify-center relative overflow-hidden">
+      <section className="h-[75vh] flex flex-col items-center justify-center relative overflow-hidden">
         <motion.h1
-           initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.3, duration: 0.8, ease: "easeOut" }}
           className="text-7xl font-medium tracking-tight relative after:content-['.'] after:text-teal-500 after:text-8xl after:-ml-1 after:font-[geist-mono]"
@@ -34,7 +62,7 @@ export default function Home() {
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.3, duration: 0.8, ease: "easeOut" }}
-          
+
         >
           Built with intent.
         </motion.p>
@@ -56,9 +84,9 @@ export default function Home() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
             viewport={{ once: false, amount: 0.3 }}
-            className="text-4xl font-semibold"
+            className="text-4xl font-semibold after:content-['.'] after:text-teal-500 after:text-4xl after:ml-1 after:font-[geist-mono]"
           >
-            Work
+            work
           </motion.h2>
 
           <motion.p
@@ -90,9 +118,9 @@ export default function Home() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
             viewport={{ once: false, amount: 0.3 }}
-            className="text-4xl font-semibold"
+            className="text-4xl font-semibold after:content-['.'] after:text-teal-500 after:text-4xl after:ml-1 after:font-[geist-mono]"
           >
-            Solutions
+            solutions
           </motion.h2>
 
           <motion.p
@@ -107,32 +135,7 @@ export default function Home() {
           </motion.p>
 
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-16">
-            {[
-              {
-                title: "Product Design Systems",
-                desc: "Systematic UI foundations that ensure clarity, consistency, and speed — built in Figma, translated with precision into code.",
-              },
-              {
-                title: "Frontend Engineering",
-                desc: "High-performance interfaces built with Next.js, React, Tailwind and ShadCN — engineered for reliability, performance, and maintainability.",
-              },
-              {
-                title: "Animations & Motion",
-                desc: "Subtle, intentional motion design using Motion — adding depth, feedback, and flow to every interaction.",
-              },
-              {
-                title: "API & Data Integrations",
-                desc: "Seamless integration with GraphQL, REST, and WebSocket endpoints — translating raw data into meaningful, real-time interfaces.",
-              },
-              {
-                title: "Wallet & dApp Integration",
-                desc: "Connect, transact and sign — powered by RainbowKit, Wagmi and Viem. Intuitive onboarding, zero friction.",
-              },
-              {
-                title: "Deployment & Optimization",
-                desc: "Production-grade builds deployed on Vercel. Analytics, SEO, and edge-rendering tuned for speed and trust.",
-              },
-            ].map((item, i) => (
+            {solutions.map((item, i) => (
               <motion.div
                 key={item.title}
                 initial={{ opacity: 0, y: 40 }}
@@ -149,6 +152,9 @@ export default function Home() {
         </div>
       </section>
 
+      {/* TECH MARQUEE       */}
+      <TechMarquee />
+      
       {/* ───────────── STUDIO ───────────── */}
       <section
         id="studio"
@@ -160,9 +166,9 @@ export default function Home() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
             viewport={{ once: false }}
-            className="text-4xl font-semibold"
+            className="text-4xl font-semibold after:content-['.'] after:text-teal-500 after:text-4xl after:ml-1 after:font-[geist-mono]"
           >
-            Studio
+            studio
           </motion.h2>
 
           <motion.p

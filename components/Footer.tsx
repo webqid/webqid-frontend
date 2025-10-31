@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 
 export default function Footer() {
     return (
@@ -55,10 +56,32 @@ export default function Footer() {
                                 target="_blank"
                                 rel="noopener noreferrer"
                             >
-                                X
+                                <Image
+                                    src="/icons/logo-x.svg"
+                                    alt="X"
+                                    width={16}
+                                    height={16}
+                                    className="inline-block mr-2 mb-1"
+                                />
+                                @webqid
                             </a>
                         </li>
-                        {/* <li><a href="#">GitHub</a></li> */}
+                        <li>
+                            <a href="https://github.com/webqid"
+                                title="GitHub"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                <Image
+                                    src="/icons/logo-github.svg"
+                                    alt="GitHub"
+                                    width={16}
+                                    height={16}
+                                    className="inline-block mr-2 mb-1"
+                                />
+                            GitHub
+                            </a>
+                        </li>
                         {/* <li><a href="#">LinkedIn</a></li> */}
                     </ul>
                 </div>

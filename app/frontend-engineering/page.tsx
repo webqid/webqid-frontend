@@ -5,9 +5,23 @@ import { Separator } from "@/components/ui/separator";
 import PayOff from "@/components/PayOff";
 
 const tools = [
-    "Next.js", "TypeScript", "JavaScript", "Tailwind CSS", "Shadcn UI", "React",
-    "Wagmi", "Viem", "Ethers.js", "Solidity", "Hardhat",
-    "GraphQL", "Vercel", "GitHub", "Figma"
+    { name: "Next.js", logo: "logo-next.svg" },
+    { name: "TypeScript", logo: "logo-typescript.svg" },
+    { name: "JavaScript", logo: "logo-javascript.svg" },
+    { name: "Tailwind CSS", logo: "logo-tailwindcss.svg" },
+    { name: "Shadcn UI", logo: "logo-shadcnui.svg" },
+    { name: "React", logo: "logo-react.svg" },
+    { name: "Wagmi", logo: "logo-wagmi.svg" },
+    { name: "Viem", logo: "logo-viem.svg" },
+    { name: "Ethers.js", logo: "logo-ethers.svg" },
+    { name: "Solidity", logo: "logo-solidity.svg" },
+    { name: "Hardhat", logo: "logo-hardhat.svg" },
+    { name: "GraphQL", logo: "logo-graphql.svg" },
+    { name: "Vercel", logo: "logo-vercel.svg" },
+    { name: "GitHub", logo: "logo-github.svg" },
+    { name: "Figma", logo: "logo-figma.svg" },
+    { name: "Motion", logo: "logo-motion.svg" },
+    { name: "GSAP", logo: "logo-gsap.svg" },
 ];
 
 const fadeIn = {
@@ -49,12 +63,21 @@ export default function Page() {
                     <ul className="grid grid-cols-2 sm:grid-cols-3 gap-3 mt-8">
                         {tools.map((t) => (
                             <motion.li
-                                key={t}
+                                key={t.name}
                                 whileInView="show"
                                 viewport={{ once: true, amount: 0.3 }}
-                                className="rounded-md border border-zinc-800/70 bg-zinc-950/40 backdrop-blur-sm px-3 py-2 text-sm flex items-center justify-center hover:border-zinc-700/70 transition-all"
+                                className="rounded-md border border-zinc-800/70 bg-zinc-950/40 backdrop-blur-sm px-3 py-2 text-sm flex items-center gap-3 hover:border-zinc-700/70 transition-all"
                             >
-                                {t}
+                                <img
+                                    src={`/icons/${t.logo}`}
+                                    alt={`${t.name} logo`}
+                                    className="w-5 h-5 object-contain"
+                                    onError={(e) => {
+                                        // hide broken image gracefully
+                                        (e.currentTarget as HTMLImageElement).style.display = "none";
+                                    }}
+                                />
+                                <span className="text-sm">{t.name}</span>
                             </motion.li>
                         ))}
                     </ul>
