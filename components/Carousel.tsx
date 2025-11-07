@@ -54,7 +54,7 @@ export function CarouselPage() {
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
                 <CardContent className="absolute bottom-0 p-6 text-left space-y-1">
                   <h3 className="text-lg font-medium">{project.title}</h3>
-                  <p className="text-zinc-400 text-sm">{project.description}</p>
+                  <p className="text-neutral-400 text-sm">{project.description}</p>
                 </CardContent>
               </Card>
 

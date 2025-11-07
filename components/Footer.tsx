@@ -3,40 +3,41 @@ import Image from "next/image";
 
 export default function Footer() {
     return (
-        <footer className="border-t border-neutral-800 bg-[#000000]/20 text-sm text-zinc-400">
+        <footer className="border-t border-neutral-800 bg-[#000000]/20 text-sm text-neutral-400">
             <div className="container py-16 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-10">
                 {/* Logo */}
                 <div className="col-span-2 row-span-2 md:row-span-1 sm:col-span-1">
-                    <Link href="/" className="text-2xl font-medium text-zinc-200">
+                    <Link href="/" className="text-2xl font-medium text-neutral-200">
                         webqid<span className="text-teal-500 font-serif">.</span>
                     </Link>
                 </div>
 
                 {/* Expertise */}
                 <div>
-                    <h3 className="text-zinc-200 mb-3">Expertise</h3>
+                    <h3 className="text-neutral-200 mb-3">Expertise</h3>
                     <ul className="space-y-2">
                         <li><Link href="/frontend-engineering">Frontend Engineering</Link></li>
                         <li><Link href="/web3-integration">Web3 Integration</Link></li>
+                        <li><Link href="dapp-development">dApp Development</Link></li>
                         {/* <li><a href="#">Smart Contracts</a></li>
                         <li><a href="#">Interface Design</a></li> */}
                     </ul>
                 </div>
 
                 {/* Solutions */}
-                <div>
-                    <h3 className="text-zinc-200 mb-3">Solutions</h3>
+                {/* <div>
+                    <h3 className="text-neutral-200 mb-3">Solutions</h3>
                     <ul className="space-y-2">
                         <li><Link href="dapp-development">dApp Development</Link></li>
                         <li><Link href="/wallet-connect">Wallet Connect</Link></li>
-                        {/* <li><a href="#">Token & NFT Launch</a></li>
-                        <li><a href="#">Staking Systems</a></li> */}
+                        <li><a href="#">Token & NFT Launch</a></li>
+                        <li><a href="#">Staking Systems</a></li>
                     </ul>
-                </div>
+                </div> */}
 
                 {/* Studio */}
                 <div>
-                    <h3 className="text-zinc-200 mb-3">Studio</h3>
+                    <h3 className="text-neutral-200 mb-3">Studio</h3>
                     <ul className="space-y-2">
                         <li><Link href="/about">About</Link></li>
                         {/* <li><a href="#">Philosophy</a></li> */}
@@ -46,7 +47,7 @@ export default function Footer() {
 
                 {/* Connect */}
                 <div>
-                    <h3 className="text-zinc-200 mb-3">Connect</h3>
+                    <h3 className="text-neutral-200 mb-3">Connect</h3>
                     <ul className="space-y-2">
                         {/* <li><Link href="/contact">Contact</Link></li> */}
                         <li>

@@ -10,11 +10,11 @@ export default function Page() {
                     contact
                 </h1>
 
-                <p className="text-zinc-300 font-light leading-relaxed">
+                <p className="text-neutral-400 font-light leading-relaxed">
                     We keep things simple — direct contact, no forms.
                 </p>
 
-                <p className="text-zinc-300 font-light leading-relaxed">
+                <p className="text-neutral-400 font-light leading-relaxed">
                     For collaborations, inquiries, or project discussions, reach out anytime at{" "}
                     <Link
                         href="mailto:hello@webqid.com"
@@ -24,7 +24,7 @@ export default function Page() {
                     </Link>.
                 </p>
 
-                <p className="text-zinc-400 text-sm font-light">
+                <p className="text-neutral-400 text-sm font-light">
                     Expect a calm, thoughtful reply — no automation, just intent.
                 </p>
             </section>

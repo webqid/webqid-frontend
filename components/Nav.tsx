@@ -34,11 +34,11 @@ export default function Header() {
         <div id="main-menu" className="hidden md:flex">
           <NavigationMenu>
             <NavigationMenuList>
-              {/* <NavigationMenuItem>
+              <NavigationMenuItem>
                 <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
-                  <Link href="#work">work</Link>
+                  <Link href="/#philosophy">philosophy</Link>
                 </NavigationMenuLink>
-              </NavigationMenuItem> */}
+              </NavigationMenuItem>
               <NavigationMenuItem>
                 <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
                   <Link href="/#solutions">solutions</Link>
@@ -51,7 +51,7 @@ export default function Header() {
               </NavigationMenuItem>
               <NavigationMenuItem>
                 <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
-                  <Link href="/contact">contact</Link>
+                  <Link href="/#contact">contact</Link>
                 </NavigationMenuLink>
               </NavigationMenuItem>
             </NavigationMenuList>
@@ -66,7 +66,7 @@ export default function Header() {
           aria-expanded={open}
           aria-controls="mobile-menu"
           onClick={() => setOpen(!open)}
-          className="md:hidden text-zinc-400 hover:text-zinc-100 transition hover:bg-transparent"
+          className="md:hidden text-neutral-400 hover:text-neutral-100 transition hover:bg-transparent"
         >
           {open ? <X size={20} /> : <Menu size={20} />}
         </Button>
@@ -89,11 +89,11 @@ export default function Header() {
         transition={{ duration: 0.25, ease: "easeOut" }}
         className="md:hidden border-t border-neutral-800/50 bg-[#0A0A0A]/95 backdrop-blur-md"
       >
-        <div className="container py-6 flex flex-col space-y-4 text-zinc-400 text-base">
-          {/* <Link href="#work" onClick={() => setOpen(false)}>work</Link> */}
+        <div className="container py-6 flex flex-col space-y-4 text-neutral-400 text-base">
+          <Link href="/#philosophy" onClick={() => setOpen(false)}>philosophy</Link>
           <Link href="/#solutions" onClick={() => setOpen(false)}>solutions</Link>
           <Link href="/#studio" onClick={() => setOpen(false)}>studio</Link>
-          <Link href="/contact" onClick={() => setOpen(false)}>contact</Link>
+          <Link href="/#contact" onClick={() => setOpen(false)}>contact</Link>
         </div>
       </motion.div>
     </motion.nav>

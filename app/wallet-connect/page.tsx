@@ -10,12 +10,12 @@ export default function WalletConnect() {
                     wallet connect
                 </h1>
 
-                <p className="text-zinc-300 font-light leading-relaxed">
+                <p className="text-neutral-400 font-light leading-relaxed">
                     Enable seamless and secure connections between your applications and users' cryptocurrency wallets with our expertly crafted Wallet Connect integrations.
                     We facilitate smooth interactions across various wallet providers, ensuring a user-friendly experience that bridges the gap between your platform and the decentralized web.
                 </p>
 
-                <p className="text-zinc-300 font-light leading-relaxed">
+                <p className="text-neutral-400 font-light leading-relaxed">
                     Our solutions support a wide range of wallets and blockchain networks, providing flexibility and reliability for your users.
                     Whether you're building dApps, DeFi platforms, or NFT marketplaces, our Wallet Connect implementations are designed to enhance accessibility and engagement.
                 </p>

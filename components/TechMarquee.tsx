@@ -49,13 +49,13 @@ export default function TechMarquee() {
               height={28}
               className="object-contain"
             />
-            <span className="text-md text-zinc-400">{tool.name}</span>
+            <span className="text-md text-neutral-400">{tool.name}</span>
           </div>
         ))}
       </motion.div>
 
-      <div className="pointer-events-none absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-zinc-950 to-transparent" />
-      <div className="pointer-events-none absolute inset-y-0 right-0 w-32 bg-gradient-to-l from-zinc-950 to-transparent" />
+      <div className="pointer-events-none absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-neutral-950 to-transparent" />
+      <div className="pointer-events-none absolute inset-y-0 right-0 w-32 bg-gradient-to-l from-neutral-950 to-transparent" />
     </div>
   );
 }

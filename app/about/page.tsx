@@ -9,18 +9,18 @@ export default function Page() {
                     about
                 </h1>
 
-                <p className="text-zinc-300 font-light leading-relaxed">
+                <p className="text-neutral-400 font-light leading-relaxed">
                     webqid. is a studio built on calm precision.
                     We turn complex, on-chain systems into fast, human-centered interfaces — engineered for trust and performance.
                 </p>
 
-                <p className="text-zinc-300 font-light leading-relaxed">
+                <p className="text-neutral-400 font-light leading-relaxed">
                     Our work blends the rigor of software engineering with the clarity of design.
                     From dApps and staking dashboards to wallet integrations and token systems —
                     every build is intentional, reliable, and ready to scale.
                 </p>
 
-                <p className="text-zinc-300 font-light leading-relaxed">
+                <p className="text-neutral-400 font-light leading-relaxed">
                     Founded by engineers who believe that technology should feel effortless,
                     webqid. bridges the gap between Web2 familiarity and Web3 innovation.
                     We don’t chase trends — we build foundations.

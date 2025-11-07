@@ -153,6 +153,17 @@
     font-family: var(--font-ibm-plex-serif);
   }
 
+  .font-medium {
+    font-family: var(--font-geist-sans);
+    font-weight: 500;
+  } 
+
+  .font-light {
+    font-family: var(--font-geist-sans);
+    font-weight: 300;
+
+  } 
+
   .bg-gradient-base {
     background: linear-gradient(
       135deg,

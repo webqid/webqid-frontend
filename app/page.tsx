@@ -3,6 +3,7 @@
 import { motion, useScroll, useTransform } from "motion/react";
 import { useRef } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import { CarouselPage } from "@/components/Carousel";
 import TechMarquee from "@/components/TechMarquee";
 
@@ -15,110 +16,105 @@ export default function Home() {
 
   const studioY = useTransform(scrollYProgress, [0, 1], [0, -120]);
   const workY = useTransform(scrollYProgress, [0, 1], [0, -60]);
-  const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0.7]);
 
   const solutions = [
     {
-      title: "Web3 Frontend Engineering",
-      desc: "High-performance apps built with Next.js, TypeScript, and Tailwind. Fast, predictable, and built to scale without friction.",
+      title: "Web3 Interfaces",
+      desc: "Frontends built with precision — engineered in Next.js, TypeScript, and Tailwind for clarity, speed, and reliability.",
+    },
+    {
+      title: "Design Handoff",
+      desc: "From Figma to code. Pixel-perfect, accessible, and maintainable — a direct translation from concept to production.",
     },
     {
       title: "Design Systems in Code",
-      desc: "Consistent, accessible UI components — engineered directly in code for clarity, speed, and long-term maintainability.",
-    },
-    {
-      title: "Figma-to-Web Implementation",
-      desc: "From Figma file to production-ready frontend. Pixel-perfect translation with clean, optimized, and accessible code.",
+      desc: "UI foundations crafted for scalability. Consistent, accessible, and easy to evolve across products.",
     },
     {
       title: "API & Realtime Data",
-      desc: "GraphQL, REST, and WebSocket integrations that turn complex data into clear, real-time interfaces users can trust.",
+      desc: "Integrations with GraphQL, REST, and WebSockets that turn complex data into clear, reactive experiences.",
     },
     {
-      title: "Wallet & Trading Integrations",
-      desc: "Seamless wallet and exchange connections using RainbowKit, Wagmi, Viem, and Hyperliquid APIs — secure, smooth, and ready to trade.",
+      title: "Wallet & dApp Integrations",
+      desc: "Seamless Web3 onboarding through RainbowKit, Wagmi, Viem, and Hyperliquid APIs — smooth, secure, and trusted.",
     },
     {
-      title: "Deployment & Performance",
-      desc: "Deployed on Vercel with edge rendering, analytics, and monitoring. Tuned for speed, reliability, and continuous improvement.",
+      title: "Optimized Delivery",
+      desc: "Deployed on Vercel with edge rendering, analytics, and continuous performance tuning.",
     },
-  ]
+  ];
 
   return (
-    <div ref={ref} className="text-neutral-200 flex flex-col">
+    <div ref={ref} className="text-neutral-300 font-[geist-sans] antialiased flex flex-col">
       {/* ───────────── HERO ───────────── */}
-      <section className="h-[75vh] flex flex-col items-center justify-center relative overflow-hidden">
+      <section id="hero" className="h-[80vh] flex flex-col items-center justify-center relative overflow-hidden text-center">
         <motion.h1
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.3, duration: 0.8, ease: "easeOut" }}
-          className="text-7xl font-medium tracking-tight relative after:content-['.'] after:text-teal-500 after:text-8xl after:-ml-1 after:font-[geist-mono]"
+          className="text-7xl md:text-8xl font-medium tracking-tight relative after:content-['.'] after:text-teal-500 after:font-[geist-mono]"
         >
           webqid
         </motion.h1>
 
         <motion.p
-          className="mt-6 text-xl text-zinc-400 font-light"
+          className="mt-6 text-xl text-neutral-400 font-light tracking-wide"
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.3, duration: 0.8, ease: "easeOut" }}
-
+          transition={{ delay: 0.5, duration: 0.8, ease: 'easeOut' }}
         >
           Built with intent.
         </motion.p>
 
-        {/* Accent glow */}
-        <motion.div
-          initial={{ opacity: 0, scale: 0.9 }}
-          animate={{ opacity: 0.3, scale: 1 }}
-          transition={{ duration: 2, ease: "easeOut" }}
-          className="absolute -top-32 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-accent/10 rounded-full blur-3xl"
-        />
+        <motion.p
+          className="mt-4 text-lg text-neutral-500 max-w-md leading-relaxed font-light tracking-wide"
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.9, duration: 0.8, ease: 'easeOut' }}
+        >
+          Precision-built Web3 frontends — engineered for trust, scalability, and performance.
+        </motion.p>
       </section>
 
-      {/* ───────────── WORK ───────────── */}
-      <section id="work" className="py-32 border-t border-neutral-800/50 overflow-hidden hidden">
-        <div className="container text-center space-y-10">
-          <motion.h2
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
-            viewport={{ once: false, amount: 0.3 }}
-            className="text-4xl font-semibold after:content-['.'] after:text-teal-500 after:text-4xl after:ml-1 after:font-[geist-mono]"
-          >
-            work
-          </motion.h2>
+      {/* ───────────── PHILOSOPHY ───────────── */}
+      <section id="philosophy" className="py-24 border-t border-neutral-800/50 text-center">
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+          viewport={{ once: true }}
+          className="container max-w-3xl mx-auto space-y-8"
+        >
+          <h2 className="text-4xl font-medium after:content-['.'] after:text-teal-500 after:font-[geist-mono] after:text-5xl">
+            philosophy
+          </h2>
 
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
-            viewport={{ once: false, amount: 0.3 }}
-            className="text-zinc-400 max-w-2xl mx-auto font-light leading-relaxed"
-          >
-            Selected projects that show how precision, design, and trust come together.
-          </motion.p>
+          <p className="text-neutral-400 font-light leading-relaxed tracking-wide">
+            Web3 shouldn’t feel experimental — it should feel inevitable.<br />
+            At webqid, we translate complex on-chain systems into fast, reliable, and elegant interfaces.
+          </p>
 
-          <motion.div style={{ y: workY }} className="mt-12">
-            <CarouselPage />
-          </motion.div>
+          <p className="text-neutral-400 font-light leading-relaxed tracking-wide">
+            Our philosophy is simple: technology serves clarity.<br />
+            Every line of code, every animation, every pixel is placed with intent — never decoration.
+          </p>
 
-
-        </div>
+          <p className="text-neutral-400 font-light leading-relaxed tracking-wide">
+            The result is calm precision.<br />
+            Products that don’t shout, but work — built to last, and built with intent.
+          </p>
+        </motion.div>
       </section>
 
       {/* ───────────── SOLUTIONS ───────────── */}
-      <section
-        id="solutions"
-        className="py-32 border-t border-neutral-800/50 overflow-hidden"
-      >
+      <section id="solutions" className="py-24 border-t border-neutral-800/50 overflow-hidden">
         <div className="container text-center space-y-10">
           <motion.h2
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
-            viewport={{ once: false, amount: 0.3 }}
-            className="text-4xl font-semibold after:content-['.'] after:text-teal-500 after:text-4xl after:ml-1 after:font-[geist-mono]"
+            viewport={{ once: true }}
+            className="text-4xl font-medium after:content-['.'] after:text-teal-500 after:font-[geist-mono] after:text-5xl"
           >
             solutions
           </motion.h2>
@@ -127,11 +123,11 @@ export default function Home() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
-            viewport={{ once: false, amount: 0.3 }}
-            className="text-zinc-400 max-w-2xl mx-auto font-light leading-relaxed"
+            viewport={{ once: true }}
+            className="text-neutral-400 max-w-2xl mx-auto leading-relaxed font-light tracking-wide"
           >
-            From concept and design systems to complete Web3-ready applications.
-            We turn complex architectures into refined, performant, and scalable user experiences.
+            We design and build for Web3 teams who demand precision, speed, and clarity —
+            transforming complex on-chain systems into refined, human interfaces.
           </motion.p>
 
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-16">
@@ -141,32 +137,30 @@ export default function Home() {
                 initial={{ opacity: 0, y: 40 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: i * 0.1, ease: "easeOut" }}
-                viewport={{ once: false, amount: 0.3 }}
-                className="rounded-xl border border-neutral-800 bg-neutral-900/40 p-6 text-left space-y-2 hover:border-accent transition-colors"
+                viewport={{ once: true }}
+                className="rounded-xl border border-neutral-800 bg-neutral-900/40 p-6 text-left space-y-2 hover:border-teal-500/40 transition-colors"
               >
-                <h3 className="text-lg font-medium text-zinc-200">{item.title}</h3>
-                <p className="text-zinc-400 text-sm leading-relaxed">{item.desc}</p>
+                <h3 className="text-lg font-medium text-neutral-200 tracking-tight">
+                  {item.title}
+                </h3>
+                <p className="text-neutral-400 text-sm leading-relaxed tracking-wide">
+                  {item.desc}
+                </p>
               </motion.div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* TECH MARQUEE       */}
-      <TechMarquee />
-      
       {/* ───────────── STUDIO ───────────── */}
-      <section
-        id="studio"
-        className="relative border-t border-neutral-800/50 "
-      >
+      <section id="studio" className="py-24 relative border-t border-neutral-800/50 ">
         <div className="container max-w-4xl mx-auto text-center py-32 space-y-10">
           <motion.h2
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
-            viewport={{ once: false }}
-            className="text-4xl font-semibold after:content-['.'] after:text-teal-500 after:text-4xl after:ml-1 after:font-[geist-mono]"
+            viewport={{ once: true }}
+            className="text-4xl font-medium after:content-['.'] after:text-teal-500 after:font-[geist-mono] after:text-5xl"
           >
             studio
           </motion.h2>
@@ -175,16 +169,14 @@ export default function Home() {
             initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1, duration: 0.8, ease: "easeOut" }}
-            viewport={{ once: false, amount: 0.3 }}
-            className="text-zinc-400 font-light leading-relaxed max-w-2xl mx-auto"
+            viewport={{ once: true }}
+            className="text-neutral-400 font-light leading-relaxed tracking-wide max-w-2xl mx-auto"
           >
-            webqid. is a high-end engineering studio crafting frontends with the
-            precision of architecture. We blend technology, aesthetics, and
-            reliability — building fewer things, better.
+            webqid. is a high-end engineering studio crafting frontends with the precision of architecture.<br />
+            We blend technology and aesthetics into reliable frontends — building fewer things, but better.
           </motion.p>
         </div>
 
-        {/* Image wrapper outside of content flow */}
         <div className="relative w-full overflow-hidden border-t border-neutral-800">
           <motion.div
             style={{ y: studioY }}
@@ -195,10 +187,61 @@ export default function Home() {
               alt="Studio workspace"
               width={1280}
               height={731}
-              className="w-full h-full object-cover opacity-80"
+              className="w-full h-full object-cover opacity-80 brightness-[0.85]"
               priority
             />
           </motion.div>
+        </div>
+      </section>
+
+      {/* ───────────── CONTACT ───────────── */}
+      <section id="contact" className="py-24 border-t border-neutral-800/50 overflow-hidden">
+        <div className="container max-w-4xl mx-auto text-center py-32 space-y-10">
+          <motion.h2
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+            viewport={{ once: true }}
+            className="text-4xl font-medium after:content-['.'] after:text-teal-500 after:font-[geist-mono] after:text-5xl"
+          >
+            contact
+          </motion.h2>
+
+          <p className="text-neutral-400 font-light leading-relaxed tracking-wide">
+            We keep things simple — direct contact, no forms.
+          </p>
+
+          <p className="text-neutral-400 font-light leading-relaxed tracking-wide">
+            For collaborations, inquiries, or project discussions, reach out anytime at{" "}
+            <Link
+              href="mailto:hello@webqid.com"
+              className="text-teal-500 hover:text-teal-300 transition-colors font-medium"
+            >
+              hello@webqid.com
+            </Link>.
+          </p>
+
+          <p className="text-neutral-500 text-sm font-light tracking-wide">
+            Based in the Netherlands — collaborating worldwide.
+          </p>
+
+          <motion.div
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.4, duration: 0.8, ease: "easeOut" }}
+            viewport={{ once: true }}
+          >
+            <Link
+              href="mailto:hello@webqid.com"
+              className="inline-block mt-4 px-5 py-3 bg-teal-500/10 border border-teal-500/20 rounded-xl text-teal-400 hover:bg-teal-500/20 transition font-sans tracking-tight"
+            >
+              Start a conversation
+            </Link>
+          </motion.div>
+
+          <p className="text-neutral-500 text-sm font-light tracking-wide">
+            Expect a calm, thoughtful reply — no automation, just intent.
+          </p>
         </div>
       </section>
     </div>
