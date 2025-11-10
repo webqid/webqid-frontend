@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
+import { Linkedin } from "lucide-react";
 
 export default function Footer() {
     return (
@@ -36,14 +37,14 @@ export default function Footer() {
                 </div> */}
 
                 {/* Studio */}
-                <div>
+                {/* <div>
                     <h3 className="text-neutral-200 mb-3">Studio</h3>
                     <ul className="space-y-2">
                         <li><Link href="/about">About</Link></li>
-                        {/* <li><a href="#">Philosophy</a></li> */}
-                        {/* <li><a href="#">Brand</a></li> */}
+                        <li><a href="#">Philosophy</a></li>
+                        <li><a href="#">Brand</a></li>
                     </ul>
-                </div>
+                </div> */}
 
                 {/* Connect */}
                 <div>
@@ -82,7 +83,20 @@ export default function Footer() {
                             
                             </a>
                         </li>
-                        {/* <li><a href="#">LinkedIn</a></li> */}
+                        <li><a href="https://linkedin.com/company/webqid"
+                                title="LinkedIn"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                <Image
+                                    src="/icons/logo-linkedin.svg"
+                                    alt="LinkedIn"
+                                    width={16}
+                                    height={16}
+                                    className="inline-block mr-2 mb-1"
+                                />
+                            
+                            </a></li>
                     </ul>
                 </div>
 

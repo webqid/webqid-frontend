@@ -66,23 +66,27 @@ export default function Web3Integration() {
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8, ease: "easeOut" }}
                     viewport={{ once: true }}
-                    className="bg-neutral-950/50 border border-neutral-800 rounded-xl p-6 text-left font-[geist-mono] text-xs text-neutral-400 overflow-x-auto max-w-3xl mx-auto"
+                    className="bg-neutral-950/50 z-0 relative p-6 text-left font-[geist-mono] text-xs text-neutral-400 overflow-x-auto max-w-3xl mx-auto"
                 >
+                    <div className="absolute top-0 left-0 z-10 w-full h-[200px] bg-gradient-to-t from-transparent to-[#0a0a0a]"></div>
+                    <div className="absolute bottom-0 left-0 z-10 w-full h-[200px] bg-gradient-to-b from-transparent to-[#0a0a0a]"></div>
                     <pre>
-                        {`frontend  →  wallet adapter  →  signer  →  contract call  →  response UI
-
-// simplified ERC20 read example using wagmi + viem
-import { useReadContract } from "wagmi";
+                        {`import { useReadContract } from "wagmi";
 import { erc20Abi } from "viem";
 
-const { data: symbol, isLoading } = useReadContract({
-  abi: erc20Abi,
-  address: tokenAddress,
-  functionName: "symbol",
-});
+type ERC20Symbol = { result: string };
 
-if (isLoading) console.log("Reading token...");
-else console.log(symbol); // e.g. "USDC"`}
+export function useTokenSymbol(tokenAddress: \`0x\${string}\`) {
+  const { data, error, isLoading } = useReadContract({
+    abi: erc20Abi,
+    address: tokenAddress,
+    functionName: "symbol",
+  }) as ERC20Symbol;
+
+  if (error) console.warn("read:error", error.shortMessage);
+  if (isLoading) return "Loading...";
+  return data ?? "—";
+}`}
                     </pre>
                 </motion.div>
             </section>

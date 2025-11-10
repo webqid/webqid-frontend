@@ -51,6 +51,11 @@ export default function Header() {
               </NavigationMenuItem>
               <NavigationMenuItem>
                 <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
+                  <Link href="/#workspace">workspace</Link>
+                </NavigationMenuLink>
+              </NavigationMenuItem>
+              <NavigationMenuItem>
+                <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
                   <Link href="/#contact">contact</Link>
                 </NavigationMenuLink>
               </NavigationMenuItem>
@@ -93,6 +98,7 @@ export default function Header() {
           <Link href="/#philosophy" onClick={() => setOpen(false)}>philosophy</Link>
           <Link href="/#solutions" onClick={() => setOpen(false)}>solutions</Link>
           <Link href="/#studio" onClick={() => setOpen(false)}>studio</Link>
+          <Link href="/#workspace" onClick={() => setOpen(false)}>workspace</Link>
           <Link href="/#contact" onClick={() => setOpen(false)}>contact</Link>
         </div>
       </motion.div>

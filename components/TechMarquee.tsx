@@ -27,7 +27,7 @@ export default function TechMarquee() {
   const repeated = [...tools, ...tools];
 
   return (
-    <div className="relative flex overflow-hidden py-8 mb-8">
+    <div className="relative font-sans flex overflow-hidden py-8 mb-8">
       <motion.div
         className="flex gap-12 whitespace-nowrap"
         animate={{ x: ["0%", "-50%"] }}

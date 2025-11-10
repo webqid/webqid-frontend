@@ -153,9 +153,11 @@ export default function Home() {
       </section>
 
       {/* ───────────── STUDIO ───────────── */}
-      <section id="studio" className="py-24 relative border-t border-neutral-800/50 ">
-        <div className="container max-w-4xl mx-auto text-center py-32 space-y-10">
-          <motion.h2
+      <TechMarquee />      
+
+     <section id="studio" className="py-24 border-t border-neutral-800/50 overflow-hidden">
+     <div className="container text-center space-y-10">
+        <motion.h2
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
@@ -165,6 +167,102 @@ export default function Home() {
             studio
           </motion.h2>
 
+        <motion.p
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.1, duration: 0.8, ease: "easeOut" }}
+            viewport={{ once: true }}
+            className="text-neutral-400 font-light leading-relaxed tracking-wide max-w-2xl mx-auto"
+          >
+          webqid. is a high-end engineering studio built on calm precision.  
+          We translate complex on-chain systems into fast, human-centered interfaces — engineered for trust and performance.
+        </motion.p>
+
+         <motion.p
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.1, duration: 0.8, ease: "easeOut" }}
+            viewport={{ once: true }}
+            className="text-neutral-400 font-light leading-relaxed tracking-wide max-w-2xl mx-auto"
+          >
+          Our approach blends the rigor of software engineering with the clarity of design.  
+          From staking dashboards and token systems to wallet integrations and dApps —  
+          every build is intentional, reliable, and ready to scale.
+        </motion.p>
+
+         <motion.p
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.1, duration: 0.8, ease: "easeOut" }}
+            viewport={{ once: true }}
+            className="text-neutral-400 font-light leading-relaxed tracking-wide max-w-2xl mx-auto"
+          >
+          We don’t chase trends. We build foundations.  
+          Technology should feel effortless — refined, quiet, and precise.
+        </motion.p>
+
+        <motion.div
+          initial={{ opacity: 0, y: 8 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.2, duration: 0.6, ease: "easeOut" }}
+          viewport={{ once: true }}
+          className="mx-auto mt-8"
+        >
+          <div className="inline-flex items-center gap-4 bg-neutral-900/40 border border-neutral-800 rounded-xl p-4">
+            <div className="w-14 h-14 relative rounded-full overflow-hidden flex-shrink-0">
+              <Image
+                src="/profile.jpg"
+                alt="Studio founder profile"
+                fill
+                className="object-cover grayscale brightness-90"
+              />
+            </div>
+
+            <div className="text-left">
+              <div className="text-sm font-medium text-neutral-100">
+                Christian van de Weerd
+              </div>
+              <div className="text-xs font-sans text-neutral-400">
+                Senior Web3 Developer
+              </div>
+              <div className="text-[10px] italic text-neutral-500/80 mt-1 tracking-wide">
+                Precision is how I show care.
+              </div>
+            </div>
+
+            <a
+              href="https://www.linkedin.com/in/jcvandeweerd"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="ml-4 text-teal-400 hover:text-teal-300 transition-colors"
+              aria-label="Open LinkedIn profile"
+            >
+              <Image
+                src="/icons/logo-linkedin.svg"
+                alt="LinkedIn"
+                width={16}
+                height={16}
+                className="inline-block"
+              />
+            </a>
+          </div>
+        </motion.div>
+        </div>
+      </section>
+
+      {/* ───────────── WORKSPACE ───────────── */}
+      <section id="workspace" className="py-24 border-t border-neutral-800/50 overflow-hidden">
+        <div className="container max-w-4xl mx-auto text-center py-32 space-y-10">
+          <motion.h2
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+            viewport={{ once: true }}
+            className="text-4xl font-medium after:content-['.'] after:text-teal-500 after:font-[geist-mono] after:text-5xl"
+          >
+            workspace
+          </motion.h2>
+
           <motion.p
             initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -172,14 +270,18 @@ export default function Home() {
             viewport={{ once: true }}
             className="text-neutral-400 font-light leading-relaxed tracking-wide max-w-2xl mx-auto"
           >
-            webqid. is a high-end engineering studio crafting frontends with the precision of architecture.<br />
-            We blend technology and aesthetics into reliable frontends — building fewer things, but better.
+            Every detail is deliberate — from architecture to code.  
+            Our workspace mirrors our philosophy: calm, precise, and built for focus.  
+            We build fewer things, but better.
           </motion.p>
         </div>
 
         <div className="relative w-full overflow-hidden border-t border-neutral-800">
           <motion.div
-            style={{ y: studioY }}
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={{ duration: 1.2, ease: "easeOut" }}
+            viewport={{ once: true }}
             className="w-full h-[480px] md:h-[560px] lg:h-[600px] overflow-hidden"
           >
             <Image
