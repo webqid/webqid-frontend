@@ -31,18 +31,19 @@ const ibmPlexSerif = IBM_Plex_Serif({
 });
 
 export const metadata: Metadata = {
-  title: "webqid. — Precision-built frontends for the modern web",
+  title: "webqid. — Precision-built Web3 frontends engineered for trust",
   description:
-    "webqid builds high-performance frontends where precision meets trust. Minimalist, scalable, and engineered for seamless digital and on-chain experiences.",
+    "webqid builds high-performance Web3 frontends where precision meets trust. Minimalist, scalable, and engineered for seamless on-chain and digital experiences.",
   keywords: [
-    "Frontend development",
+    "Web3 frontend",
     "Next.js",
     "React",
     "TypeScript",
     "UI engineering",
     "Blockchain interfaces",
+    "dApp development",
+    "Wallet integration",
     "Design systems",
-    "Scalable web apps",
     "Vercel",
     "webqid",
   ],
@@ -51,9 +52,9 @@ export const metadata: Metadata = {
     icon: "/favicon.ico",
   },
   openGraph: {
-    title: "webqid. — Precision-built frontends for the modern web",
+    title: "webqid. — Precision-built Web3 frontends engineered for trust",
     description:
-      "Turning complex technology into refined, high-performance interfaces. Built with intent.",
+      "Turning on-chain complexity into fast, reliable, and elegant interfaces. Built with intent.",
     url: "https://webqid.com",
     siteName: "webqid.",
     images: [
@@ -61,7 +62,7 @@ export const metadata: Metadata = {
         url: "/og-image.png",
         width: 1200,
         height: 630,
-        alt: "webqid. — Precision-built frontends for the modern web",
+        alt: "webqid. — Precision-built Web3 frontends engineered for trust",
       },
     ],
     locale: "en_US",
@@ -69,9 +70,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "webqid. — Precision-built frontends for the modern web",
+    title: "webqid. — Precision-built Web3 frontends engineered for trust",
     description:
-      "Minimalist. Reliable. Built with intent. webqid engineers premium frontends for the digital and on-chain web.",
+      "Minimalist. Reliable. Built with intent. webqid engineers premium Web3 frontends where design, motion, and code align.",
     images: ["/og-image.png"],
     creator: "@webqid",
   },
@@ -80,7 +81,6 @@ export const metadata: Metadata = {
     canonical: "https://webqid.com",
   },
 };
-
 
 export default function RootLayout({
   children,
