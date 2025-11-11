@@ -7,50 +7,35 @@ export default function Footer() {
         <footer className="border-t border-neutral-800 bg-[#000000]/20 text-sm text-neutral-400">
             <div className="container py-16 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-10">
                 {/* Logo */}
-                <div className="col-span-2 row-span-2 md:row-span-1 sm:col-span-1">
-                    <Link href="/" className="text-2xl font-medium text-neutral-200">
+                <div className="col-span-2 p-0 relative row-span-2 md:row-span-1 sm:col-span-1">
+                    <Link href="/" className="absolute -top-3 text-2xl font-medium text-neutral-200">
                         webqid<span className="text-teal-500 font-serif">.</span>
                     </Link>
                 </div>
 
                 {/* Expertise */}
                 <div>
-                    <h3 className="text-neutral-200 mb-3">Expertise</h3>
-                    <ul className="space-y-2">
+                    <h3 className="text-neutral-200 mb-4">Expertise</h3>
+                    <ul className="space-y-2 text-neutral-300">
                         <li><Link href="/frontend-engineering">Frontend Engineering</Link></li>
                         <li><Link href="/web3-integration">Web3 Integration</Link></li>
-                        <li><Link href="dapp-development">dApp Development</Link></li>
-                        {/* <li><a href="#">Smart Contracts</a></li>
-                        <li><a href="#">Interface Design</a></li> */}
+                        <li><Link href="/dapp-development">dApp Development</Link></li>
                     </ul>
                 </div>
 
-                {/* Solutions */}
-                {/* <div>
-                    <h3 className="text-neutral-200 mb-3">Solutions</h3>
-                    <ul className="space-y-2">
-                        <li><Link href="dapp-development">dApp Development</Link></li>
-                        <li><Link href="/wallet-connect">Wallet Connect</Link></li>
-                        <li><a href="#">Token & NFT Launch</a></li>
-                        <li><a href="#">Staking Systems</a></li>
-                    </ul>
-                </div> */}
-
                 {/* Studio */}
-                {/* <div>
+                <div>
                     <h3 className="text-neutral-200 mb-3">Studio</h3>
                     <ul className="space-y-2">
                         <li><Link href="/about">About</Link></li>
-                        <li><a href="#">Philosophy</a></li>
-                        <li><a href="#">Brand</a></li>
+                        <li><Link href="/collaborations">Collaborations</Link></li>
                     </ul>
-                </div> */}
+                </div>
 
                 {/* Connect */}
                 <div>
-                    <h3 className="text-neutral-200 mb-3">Connect</h3>
-                    <ul className="space-y-2 flex flex-row md:flex-col gap-4 md:gap-2">
-                        {/* <li><Link href="/contact">Contact</Link></li> */}
+                    <h3 className="text-neutral-200 mb-4">Connect</h3>
+                    <ul className="space-y-2 flex flex-row gap-4 md:gap-2">
                         <li>
                             <a
                                 href="https://x.com/webqid"
@@ -80,10 +65,11 @@ export default function Footer() {
                                     height={16}
                                     className="inline-block mr-2 mb-1"
                                 />
-                            
+
                             </a>
                         </li>
-                        <li><a href="https://linkedin.com/company/webqid"
+                        <li>
+                            <a href="https://linkedin.com/company/webqid"
                                 title="LinkedIn"
                                 target="_blank"
                                 rel="noopener noreferrer"
@@ -95,14 +81,12 @@ export default function Footer() {
                                     height={16}
                                     className="inline-block mr-2 mb-1"
                                 />
-                            
-                            </a></li>
+
+                            </a>
+                        </li>
                     </ul>
                 </div>
-
             </div>
-
-
         </footer>
     );
 }
