@@ -208,8 +208,8 @@ export default function Home() {
           viewport={{ once: true }}
           className="mx-auto mt-8"
         >
-          <div className="inline-flex items-center gap-4 bg-neutral-900/40 border border-neutral-800 rounded-xl p-4">
-            <div className="w-14 h-14 relative rounded-full overflow-hidden flex-shrink-0">
+          <div className="inline-flex items-center gap-6 bg-neutral-900/40 border border-neutral-800 rounded-xl p-4">
+            <div className="w-20 h-20 relative rounded-full overflow-hidden flex-shrink-0">
               <Image
                 src="/profile.jpg"
                 alt="Studio founder profile"
