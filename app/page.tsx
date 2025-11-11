@@ -225,8 +225,8 @@ export default function Home() {
               <div className="text-xs font-sans text-neutral-400">
                 Senior Web3 Developer
               </div>
-              <div className="text-[10px] italic text-neutral-500/80 mt-1 tracking-wide">
-                Precision is how I show care.
+              <div className="text-[11px] italic font-sans text-neutral-500/80 mt-1 tracking-wide">
+                "Precision is how I show care."
               </div>
             </div>
 
