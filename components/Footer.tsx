@@ -49,7 +49,7 @@ export default function Footer() {
                 {/* Connect */}
                 <div>
                     <h3 className="text-neutral-200 mb-3">Connect</h3>
-                    <ul className="space-y-2">
+                    <ul className="space-y-2 flex flex-row md:flex-col gap-4 md:gap-2">
                         {/* <li><Link href="/contact">Contact</Link></li> */}
                         <li>
                             <a
