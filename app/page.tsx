@@ -7,6 +7,7 @@ import Link from "next/link";
 import { CarouselPage } from "@/components/Carousel";
 import TechMarquee from "@/components/TechMarquee";
 import ProfileCard from "@/components/ProfileCard";
+import { Button } from "@/components/ui/button";
 
 export default function Home() {
   const ref = useRef<HTMLDivElement>(null);
@@ -67,14 +68,28 @@ export default function Home() {
           Built with intent.
         </motion.p>
 
-        <motion.p
+        <motion.div
           className="mt-4 text-lg text-neutral-500 max-w-md leading-relaxed font-light tracking-wide"
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.9, duration: 0.8, ease: 'easeOut' }}
         >
-          Precision-built Web3 frontends. Engineered for trust, scalability, and performance.
-        </motion.p>
+          Precision-built Web3 frontends.<br />Engineered for trust, scalability, and performance.
+          <div className="my-6">
+          <Button
+            variant="outline"
+            size="lg"
+            asChild
+          >
+            <a href="https://demo.webqid.com" target="_blank"
+            className="pl-8 text-xl font-medium tracking-tight relative after:text-4xl after:-ml-1 after:mb-2 after:content-['.'] after:text-teal-500 after:font-[geist-mono]"
+            >
+            demo
+            </a>
+          </Button>
+        </div>
+        </motion.div>
+        
       </section>
 
       {/* ───────────── PHILOSOPHY ───────────── */}
@@ -127,7 +142,7 @@ export default function Home() {
             viewport={{ once: true }}
             className="text-neutral-400 max-w-2xl mx-auto leading-relaxed font-light tracking-wide"
           >
-            We design and build for Web3 teams who demand precision, speed, and clarity, 
+            We design and build for Web3 teams who demand precision, speed, and clarity,
             transforming complex on-chain systems into refined, human interfaces.
           </motion.p>
 
