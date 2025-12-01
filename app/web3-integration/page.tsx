@@ -57,7 +57,7 @@ export default function Web3Integration() {
                 </motion.h2>
 
                 <p className="text-neutral-500 font-light leading-relaxed max-w-2xl mx-auto">
-                    Each integration follows a predictable, modular flow — designed for auditability and long-term maintainability.
+                    Each integration follows a predictable, modular flow, designed for auditability and long-term maintainability.
                 </p>
 
                 {/* Architecture diagram substitute */}

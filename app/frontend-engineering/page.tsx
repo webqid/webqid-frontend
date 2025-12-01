@@ -51,7 +51,7 @@ export default function FrontendEngineering() {
                     transition={{ delay: 0.1, duration: 0.8, ease: "easeOut" }}
                     className="text-neutral-400 font-light leading-relaxed max-w-2xl mx-auto"
                 >
-                    Precision-built interfaces bridging Web3 complexity with Web2 simplicity — engineered
+                    Precision-built interfaces bridging Web3 complexity with Web2 simplicity. Engineered
                     for performance, clarity, and trust.
                 </motion.p>
 
@@ -69,7 +69,7 @@ export default function FrontendEngineering() {
                         tools we trust
                     </h2>
                     <p className="text-sm text-center text-neutral-500 tracking-wide">
-                        A curated stack — chosen for precision, performance, and long-term maintainability.
+                        A curated stack, chosen for precision, performance, and long-term maintainability.
                     </p>
                 </div>
 
@@ -152,7 +152,7 @@ export default function FrontendEngineering() {
 
                 <p className="text-neutral-500 font-light leading-relaxed max-w-2xl mx-auto">
                     Behind every clean interface lies intention.
-                    Below, a typical data pattern combining GraphQL and on-chain context —
+                    Below, a typical data pattern combining GraphQL and on-chain context,
                     how we synchronize real-time protocol state into UI clarity.
                 </p>
 

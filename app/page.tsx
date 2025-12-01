@@ -6,6 +6,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { CarouselPage } from "@/components/Carousel";
 import TechMarquee from "@/components/TechMarquee";
+import ProfileCard from "@/components/ProfileCard";
 
 export default function Home() {
   const ref = useRef<HTMLDivElement>(null);
@@ -20,11 +21,11 @@ export default function Home() {
   const solutions = [
     {
       title: "Web3 Interfaces",
-      desc: "Frontends built with precision — engineered in Next.js, TypeScript, and Tailwind for clarity, speed, and reliability.",
+      desc: "Frontends built with precision, engineered in Next.js, TypeScript, and Tailwind for clarity, speed, and reliability.",
     },
     {
       title: "Design Handoff",
-      desc: "From Figma to code. Pixel-perfect, accessible, and maintainable — a direct translation from concept to production.",
+      desc: "From Figma to code. Pixel-perfect, accessible, and maintainable. A direct translation from concept to production.",
     },
     {
       title: "Design Systems in Code",
@@ -36,7 +37,7 @@ export default function Home() {
     },
     {
       title: "Wallet & dApp Integrations",
-      desc: "Seamless Web3 onboarding through RainbowKit, Wagmi, Viem, and Hyperliquid APIs — smooth, secure, and trusted.",
+      desc: "Seamless Web3 onboarding through RainbowKit, Wagmi, Viem, and Hyperliquid APIs. Smooth, secure, and trusted.",
     },
     {
       title: "Optimized Delivery",
@@ -72,12 +73,12 @@ export default function Home() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.9, duration: 0.8, ease: 'easeOut' }}
         >
-          Precision-built Web3 frontends — engineered for trust, scalability, and performance.
+          Precision-built Web3 frontends. Engineered for trust, scalability, and performance.
         </motion.p>
       </section>
 
       {/* ───────────── PHILOSOPHY ───────────── */}
-      <section id="philosophy" className="py-24 border-t border-neutral-800/50 text-center">
+      {/* <section id="philosophy" className="py-24 border-t border-neutral-800/50 text-center">
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -104,7 +105,7 @@ export default function Home() {
             Products that don’t shout, but work — built to last, and built with intent.
           </p>
         </motion.div>
-      </section>
+      </section> */}
 
       {/* ───────────── SOLUTIONS ───────────── */}
       <section id="solutions" className="py-24 border-t border-neutral-800/50 overflow-hidden">
@@ -126,7 +127,7 @@ export default function Home() {
             viewport={{ once: true }}
             className="text-neutral-400 max-w-2xl mx-auto leading-relaxed font-light tracking-wide"
           >
-            We design and build for Web3 teams who demand precision, speed, and clarity —
+            We design and build for Web3 teams who demand precision, speed, and clarity, 
             transforming complex on-chain systems into refined, human interfaces.
           </motion.p>
 
@@ -153,11 +154,11 @@ export default function Home() {
       </section>
 
       {/* ───────────── STUDIO ───────────── */}
-      <TechMarquee />      
+      <TechMarquee />
 
-     <section id="studio" className="py-24 border-t border-neutral-800/50 overflow-hidden">
-     <div className="container text-center space-y-10">
-        <motion.h2
+      <section id="studio" className="py-24 border-t border-neutral-800/50 overflow-hidden">
+        <div className="container text-center space-y-10">
+          <motion.h2
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
@@ -167,86 +168,42 @@ export default function Home() {
             studio
           </motion.h2>
 
-        <motion.p
+          <motion.p
             initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1, duration: 0.8, ease: "easeOut" }}
             viewport={{ once: true }}
             className="text-neutral-400 font-light leading-relaxed tracking-wide max-w-2xl mx-auto"
           >
-          webqid. is a high-end engineering studio built on calm precision.  
-          We translate complex on-chain systems into fast, human-centered interfaces — engineered for trust and performance.
-        </motion.p>
+            webqid. is a high-end engineering studio built on calm precision.
+            We translate complex on-chain systems into fast, human-centered interfaces, engineered for trust and performance.
+          </motion.p>
 
-         <motion.p
+          <motion.p
             initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1, duration: 0.8, ease: "easeOut" }}
             viewport={{ once: true }}
             className="text-neutral-400 font-light leading-relaxed tracking-wide max-w-2xl mx-auto"
           >
-          Our approach blends the rigor of software engineering with the clarity of design.  
-          From staking dashboards and token systems to wallet integrations and dApps —  
-          every build is intentional, reliable, and ready to scale.
-        </motion.p>
+            Our approach blends the rigor of software engineering with the clarity of design.
+            From staking dashboards and token systems to wallet integrations and dApps.
+            Every build is intentional, reliable, and ready to scale.
+          </motion.p>
 
-         <motion.p
+          <motion.p
             initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1, duration: 0.8, ease: "easeOut" }}
             viewport={{ once: true }}
             className="text-neutral-400 font-light leading-relaxed tracking-wide max-w-2xl mx-auto"
           >
-          We don’t chase trends. We build foundations.  
-          Technology should feel effortless — refined, quiet, and precise.
-        </motion.p>
+            We don’t chase trends. We build foundations.
+            Technology should feel effortless. Refined, quiet, and precise.
+          </motion.p>
 
-        <motion.div
-          initial={{ opacity: 0, y: 8 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.2, duration: 0.6, ease: "easeOut" }}
-          viewport={{ once: true }}
-          className="mx-auto mt-8"
-        >
-          <div className="inline-flex items-center gap-6 bg-neutral-900/40 border border-neutral-800 rounded-xl p-4">
-            <div className="w-20 h-20 relative rounded-full overflow-hidden flex-shrink-0">
-              <Image
-                src="/profile.jpg"
-                alt="Studio founder profile"
-                fill
-                className="object-cover grayscale brightness-90"
-              />
-            </div>
+          <ProfileCard />
 
-            <div className="text-left">
-              <div className="text-sm font-medium text-neutral-100">
-                Christian van de Weerd
-              </div>
-              <div className="text-xs font-sans text-neutral-400">
-                Senior Web3 Developer
-              </div>
-              <div className="text-[11px] italic font-sans text-neutral-500/80 mt-1 tracking-wide">
-                "Precision is how I show care."
-              </div>
-            </div>
-
-            <a
-              href="https://www.linkedin.com/in/jcvandeweerd"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="ml-4 text-teal-400 hover:text-teal-300 transition-colors"
-              aria-label="Open LinkedIn profile"
-            >
-              <Image
-                src="/icons/logo-linkedin.svg"
-                alt="LinkedIn"
-                width={16}
-                height={16}
-                className="inline-block"
-              />
-            </a>
-          </div>
-        </motion.div>
         </div>
       </section>
 
@@ -270,8 +227,8 @@ export default function Home() {
             viewport={{ once: true }}
             className="text-neutral-400 font-light leading-relaxed tracking-wide max-w-2xl mx-auto"
           >
-            Every detail is deliberate — from architecture to code.  
-            Our workspace mirrors our philosophy: calm, precise, and built for focus.  
+            Every detail is deliberate, from architecture to code.
+            Our workspace mirrors our philosophy: calm, precise, and built for focus.
             We build fewer things, but better.
           </motion.p>
         </div>
@@ -310,7 +267,7 @@ export default function Home() {
           </motion.h2>
 
           <p className="text-neutral-400 font-light leading-relaxed tracking-wide">
-            We keep things simple — direct contact, no forms.
+            We keep things simple, direct contact, no forms.
           </p>
 
           <p className="text-neutral-400 font-light leading-relaxed tracking-wide">
@@ -324,7 +281,7 @@ export default function Home() {
           </p>
 
           <p className="text-neutral-500 text-sm font-light tracking-wide">
-            Based in the Netherlands — collaborating worldwide.
+            Based in the Netherlands, collaborating worldwide.
           </p>
 
           <motion.div
@@ -342,7 +299,7 @@ export default function Home() {
           </motion.div>
 
           <p className="text-neutral-500 text-sm font-light tracking-wide">
-            Expect a calm, thoughtful reply — no automation, just intent.
+            Expect a calm, thoughtful reply, no automation, just intent.
           </p>
         </div>
       </section>

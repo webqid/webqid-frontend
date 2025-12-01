@@ -34,11 +34,11 @@ export default function Header() {
         <div id="main-menu" className="hidden md:flex">
           <NavigationMenu>
             <NavigationMenuList>
-              <NavigationMenuItem>
+              {/* <NavigationMenuItem>
                 <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
                   <Link href="/#philosophy">philosophy</Link>
                 </NavigationMenuLink>
-              </NavigationMenuItem>
+              </NavigationMenuItem> */}
               <NavigationMenuItem>
                 <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
                   <Link href="/#solutions">solutions</Link>
@@ -95,7 +95,7 @@ export default function Header() {
         className="md:hidden border-t border-neutral-800/50 bg-[#0A0A0A]/95 backdrop-blur-md"
       >
         <div className="container py-6 flex flex-col space-y-4 text-neutral-400 text-base">
-          <Link href="/#philosophy" onClick={() => setOpen(false)}>philosophy</Link>
+          {/* <Link href="/#philosophy" onClick={() => setOpen(false)}>philosophy</Link> */}
           <Link href="/#solutions" onClick={() => setOpen(false)}>solutions</Link>
           <Link href="/#studio" onClick={() => setOpen(false)}>studio</Link>
           <Link href="/#workspace" onClick={() => setOpen(false)}>workspace</Link>

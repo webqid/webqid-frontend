@@ -37,7 +37,9 @@ export default function Template() {
                     [intro paragraph continuation]
                 </motion.p>
             </section>
-
+            <span className="text-[192px] font-bold tracking-tight after:content-['.'] after:-ml-2 after:text-teal-500 after:font-[geist-mono]">
+                w
+            </span>
             <Separator className="my-24 bg-neutral-800/70" />
 
             {/* ─── Section ─────────────────────────────────── */}

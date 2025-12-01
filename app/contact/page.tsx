@@ -1,5 +1,4 @@
 import Link from "next/link";
-import { Separator } from "@/components/ui/separator";
 import PayOff from "@/components/PayOff";
 
 export default function Page() {
@@ -11,7 +10,7 @@ export default function Page() {
                 </h1>
 
                 <p className="text-neutral-400 font-light leading-relaxed">
-                    We keep things simple — direct contact, no forms.
+                    We keep things simple, direct contact, no forms.
                 </p>
 
                 <p className="text-neutral-400 font-light leading-relaxed">
@@ -25,7 +24,7 @@ export default function Page() {
                 </p>
 
                 <p className="text-neutral-400 text-sm font-light">
-                    Expect a calm, thoughtful reply — no automation, just intent.
+                    Expect a calm, thoughtful reply, no automation, just intent.
                 </p>
             </section>
 

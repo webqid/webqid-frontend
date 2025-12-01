@@ -25,7 +25,7 @@ export default function DappDevelopment() {
                 >
                     We design and engineer decentralized applications that merge
                     blockchain precision with human-centric design. From contract logic
-                    to front-end nuance, every layer is crafted with intent — secure,
+                    to front-end nuance, every layer is crafted with intent. Secure,
                     scalable, and effortless to use.
                 </motion.p>
 
@@ -40,7 +40,7 @@ export default function DappDevelopment() {
                     <span className="text-teal-400">Next.js</span> with{" "}
                     <span className="text-teal-400">Wagmi</span> +{" "}
                     <span className="text-teal-400">Viem</span>. Whether DeFi vaults, NFT
-                    drops, or agent-based protocols — each dApp is engineered to feel
+                    drops, or agent-based protocols. Each dApp is engineered to feel
                     inevitable, not experimental.
                 </motion.p>
             </section>
@@ -58,7 +58,7 @@ export default function DappDevelopment() {
                 </motion.h2>
 
                 <p className="text-neutral-500 font-light leading-relaxed max-w-2xl mx-auto">
-                    Each build follows a verifiable, modular pattern — from smart
+                    Each build follows a verifiable, modular pattern, from smart
                     contract to UI. Below, a simplified staking flow represents our
                     mindset: clarity, safety, intent.
                 </p>
