@@ -217,7 +217,7 @@ export default function Home() {
             Technology should feel effortless. Refined, quiet, and precise.
           </motion.p>
 
-          <ProfileCard />
+          {/* <ProfileCard /> */}
 
         </div>
       </section>

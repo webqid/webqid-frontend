@@ -24,7 +24,7 @@ export default function Page() {
                     </p>
                 ))}
 
-                <ProfileCard />
+                {/* <ProfileCard /> */}
             </section>
 
             <PayOff />
