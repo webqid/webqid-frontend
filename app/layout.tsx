@@ -31,11 +31,12 @@ const ibmPlexSerif = IBM_Plex_Serif({
 });
 
 export const metadata: Metadata = {
-  title: "webqid. — Precision-built Web3 frontends engineered for trust",
+  title: "webqid. — Precision-built Web frontends engineered for trust",
   description:
-    "webqid builds high-performance Web3 frontends where precision meets trust. Minimalist, scalable, and engineered for seamless on-chain and digital experiences.",
+    "webqid builds high-performance Web and Web3 frontends where clarity, speed, and precision meet. Minimalist. Scalable. Built with intent.",
   keywords: [
     "Web3 frontend",
+    "Web frontend",
     "Next.js",
     "React",
     "TypeScript",
@@ -52,17 +53,17 @@ export const metadata: Metadata = {
     icon: "/favicon.ico",
   },
   openGraph: {
-    title: "webqid. — Precision-built Web3 frontends engineered for trust",
+    title: "webqid. — Precision-built Web frontends engineered for trust",
     description:
       "Turning on-chain complexity into fast, reliable, and elegant interfaces. Built with intent.",
     url: "https://webqid.com",
-    siteName: "webqid.",
+    siteName: "webqid",
     images: [
       {
         url: "/og-image.png",
         width: 1200,
         height: 630,
-        alt: "webqid. — Precision-built Web3 frontends engineered for trust",
+        alt: "webqid. — Precision-built Web frontends engineered for trust",
       },
     ],
     locale: "en_US",
@@ -70,9 +71,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "webqid. — Precision-built Web3 frontends engineered for trust",
+    title: "webqid. — Precision-built Web frontends engineered for trust",
     description:
-      "Minimalist. Reliable. Built with intent. webqid engineers premium Web3 frontends where design, motion, and code align.",
+      "Minimalist. Reliable. Built with intent. Premium Web and Web3 frontends where design, motion, and code align.",
     images: ["/og-image.png"],
     creator: "@webqid",
   },
