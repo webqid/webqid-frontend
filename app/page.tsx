@@ -174,7 +174,7 @@ export default function Home() {
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.9, duration: 0.8, ease: "easeOut" }}
                 >
-                    Precision-built Web3 frontends.
+                    Precision-built Web frontends.
                     <br />
                     Engineered for trust, scalability, and performance.
                     <div className="my-6">
