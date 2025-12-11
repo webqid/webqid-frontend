@@ -16,6 +16,7 @@ export function SolutionCard({ title, desc, index }: SolutionCardProps) {
       transition={{ duration: 0.6, delay: index * 0.1, ease: "easeOut" }}
       viewport={{ once: true }}
       className="rounded-xl border border-neutral-800 bg-neutral-900/40 p-6 text-left space-y-2 hover:border-teal-500/40 transition-colors"
+      data-testid="solution-card"
     >
       <h3 className="text-lg font-medium text-neutral-200 tracking-tight">
         {title}

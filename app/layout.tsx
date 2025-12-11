@@ -85,17 +85,35 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
-
+}) {
   return (
-    <html lang="en" className={`${geistSans.variable} ${geistMono.variable} ${ibmPlexSerif.variable}`}>
+    <html
+      lang="en"
+      suppressHydrationWarning
+      className={`${geistSans.variable} ${geistMono.variable} ${ibmPlexSerif.variable}`}
+    >
       <body className="min-h-screen flex flex-col bg-background text-foreground antialiased">
+
+        {/* Skip link */}
+        <a
+          href="#main-content"
+          className="sr-only focus:not-sr-only absolute top-2 left-2 bg-black text-white px-3 py-2 rounded"
+        >
+          Skip to content
+        </a>
+
         <SmoothScrollProvider />
-        <Nav />
-        <main className="flex-1">{children}</main>
-        <Footer />
+
+        <Nav aria-label="Primary navigation" />
+
+        {/* Main landmark */}
+        <main id="main-content" className="flex-1">
+          {children}
+        </main>
+
+        <Footer aria-label="Footer" />
       </body>
     </html>
   );

@@ -97,6 +97,7 @@ export default function Home() {
                 index={index}
                 title={solution.title}
                 desc={solution.desc}
+                data-solution-card
               />
             ))}
           </div>
