@@ -2,42 +2,43 @@
 
 import { useRef } from "react";
 import { motion, useScroll, useTransform } from "motion/react";
-import Image from "next/image";
 import Link from "next/link";
 
 import TechMarquee from "@/components/TechMarquee";
-import { Button } from "@/components/ui/button";
 import { SOLUTIONS } from "@/content/solutions";
-
 import {
   Section,
   SectionTitle,
   SectionParagraph,
-  SolutionCard
+  SolutionCard,
 } from "@/components/sections";
 
-export default function Home() {
-  const ref = useRef<HTMLDivElement>(null);
+/**
+ * Home page with hero, solutions, studio, workspace, and contact sections.
+ */
+export default function Home(): React.JSX.Element {
+  const containerRef = useRef<HTMLDivElement>(null);
 
   const { scrollYProgress } = useScroll({
-    target: ref,
-    offset: ["start start", "end end"]
+    target: containerRef,
+    offset: ["start start", "end end"],
   });
 
   const studioY = useTransform(scrollYProgress, [0, 1], [0, -120]);
-  const workY = useTransform(scrollYProgress, [0, 1], [0, -60]);
 
   return (
     <div
-      ref={ref}
+      ref={containerRef}
       className="text-neutral-300 font-[geist-sans] antialiased flex flex-col"
     >
       {/* HERO */}
       <section
         id="hero"
-        className="h-[80vh] flex flex-col items-center justify-center relative overflow-hidden text-center"
+        aria-labelledby="hero-title"
+        className="h-[80vh] flex flex-col items-center justify-center relative overflow-hidden text-center px-4"
       >
         <motion.h1
+          id="hero-title"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.3, duration: 0.8, ease: "easeOut" }}
@@ -55,7 +56,7 @@ export default function Home() {
           Built with intent.
         </motion.p>
 
-        <motion.div
+        <motion.p
           className="mt-4 text-lg text-neutral-500 max-w-md leading-relaxed font-light tracking-wide"
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
@@ -64,25 +65,13 @@ export default function Home() {
           Precision-built Web frontends.
           <br />
           Engineered for trust, scalability, and performance.
-          {/* <div className="my-6">
-            <Button variant="outline" size="lg" asChild>
-              <Link
-                href="https://demo.webqid.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="pl-8 text-xl font-medium tracking-tight relative after:text-4xl after:-ml-1 after:mb-2 after:content-['.'] after:text-teal-500 after:font-[geist-mono]"
-              >
-                demo
-              </Link>
-            </Button>
-          </div> */}
-        </motion.div>
+        </motion.p>
       </section>
 
       {/* SOLUTIONS */}
-      <Section id="solutions">
-        <div className="container text-center space-y-10">
-          <SectionTitle>solutions</SectionTitle>
+      <Section id="solutions" aria-labelledby="solutions-title">
+        <div className="container text-center space-y-10 px-4">
+          <SectionTitle id="solutions-title">solutions</SectionTitle>
 
           <SectionParagraph className="max-w-2xl mx-auto" delay={0.2}>
             We design and build for Web3 teams who demand precision, speed, and
@@ -97,20 +86,20 @@ export default function Home() {
                 index={index}
                 title={solution.title}
                 desc={solution.desc}
-                data-solution-card
               />
             ))}
           </div>
         </div>
       </Section>
 
-      {/* STUDIO */}
+      {/* TECH MARQUEE */}
       <TechMarquee />
 
-      <Section id="studio">
+      {/* STUDIO */}
+      <Section id="studio" aria-labelledby="studio-title">
         <motion.div style={{ y: studioY }}>
-          <div className="container text-center space-y-10">
-            <SectionTitle>studio</SectionTitle>
+          <div className="container text-center space-y-10 px-4">
+            <SectionTitle id="studio-title">studio</SectionTitle>
 
             <SectionParagraph className="max-w-2xl mx-auto">
               webqid. is a high-end engineering studio built on calm precision.
@@ -126,17 +115,17 @@ export default function Home() {
             </SectionParagraph>
 
             <SectionParagraph className="max-w-2xl mx-auto">
-              We don’t chase trends. We build foundations. Technology should feel
-              effortless. Refined, quiet, and precise.
+              We don&apos;t chase trends. We build foundations. Technology
+              should feel effortless. Refined, quiet, and precise.
             </SectionParagraph>
           </div>
         </motion.div>
       </Section>
 
       {/* WORKSPACE */}
-      <Section id="workspace">
-        <div className="container max-w-4xl mx-auto text-center py-32 space-y-10">
-          <SectionTitle>workspace</SectionTitle>
+      <Section id="workspace" aria-labelledby="workspace-title">
+        <div className="container max-w-4xl mx-auto text-center py-32 space-y-10 px-4">
+          <SectionTitle id="workspace-title">workspace</SectionTitle>
 
           <SectionParagraph className="max-w-2xl mx-auto">
             Every detail is deliberate, from architecture to code. Our workspace
@@ -144,32 +133,12 @@ export default function Home() {
             fewer things, but better.
           </SectionParagraph>
         </div>
-
-        <div className="hidden w-full overflow-hidden border-t border-neutral-800">
-          <motion.div
-            style={{ y: workY }}
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            transition={{ duration: 1.2, ease: "easeOut" }}
-            viewport={{ once: true }}
-            className="w-full h-120 md:h-140 lg:h-150 overflow-hidden"
-          >
-            <Image
-              src="/studio.jpg"
-              alt="Studio workspace"
-              width={1280}
-              height={731}
-              className="w-full h-full object-cover opacity-80 brightness-[0.85]"
-              priority
-            />
-          </motion.div>
-        </div>
       </Section>
 
       {/* CONTACT */}
-      <Section id="contact">
-        <div className="container max-w-4xl mx-auto text-center py-32 space-y-10">
-          <SectionTitle>contact</SectionTitle>
+      <Section id="contact" aria-labelledby="contact-title">
+        <div className="container max-w-4xl mx-auto text-center py-32 space-y-10 px-4">
+          <SectionTitle id="contact-title">contact</SectionTitle>
 
           <p className="text-neutral-400 font-light leading-relaxed tracking-wide">
             We keep things simple, direct contact, no forms.

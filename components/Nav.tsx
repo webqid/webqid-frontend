@@ -1,6 +1,6 @@
 "use client";
 
-import * as React from "react";
+import { useState, useEffect, useCallback } from "react";
 import Link from "next/link";
 import { motion, useReducedMotion } from "motion/react";
 import {
@@ -13,18 +13,47 @@ import {
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
 
-export default function Header() {
-  const [open, setOpen] = React.useState(false);
+interface NavItem {
+  readonly label: string;
+  readonly href: string;
+}
+
+const NAV_ITEMS: readonly NavItem[] = [
+  { label: "solutions", href: "/#solutions" },
+  { label: "studio", href: "/#studio" },
+  { label: "workspace", href: "/#workspace" },
+  { label: "contact", href: "/#contact" },
+] as const;
+
+/**
+ * Main navigation header with responsive mobile menu.
+ * Includes accessibility features: keyboard navigation, ARIA, focus management.
+ */
+export default function Nav(): React.JSX.Element {
+  const [isOpen, setIsOpen] = useState(false);
   const shouldReduceMotion = useReducedMotion();
 
-  // Close on Escape key
-  React.useEffect(() => {
-    function handleKey(e: KeyboardEvent) {
-      if (e.key === "Escape") setOpen(false);
-    }
-    window.addEventListener("keydown", handleKey);
-    return () => window.removeEventListener("keydown", handleKey);
+  const closeMenu = useCallback(() => {
+    setIsOpen(false);
   }, []);
+
+  const toggleMenu = useCallback(() => {
+    setIsOpen((prev) => !prev);
+  }, []);
+
+  // Close on Escape key
+  useEffect(() => {
+    function handleKeyDown(event: KeyboardEvent): void {
+      if (event.key === "Escape") {
+        closeMenu();
+      }
+    }
+
+    if (isOpen) {
+      window.addEventListener("keydown", handleKeyDown);
+      return () => window.removeEventListener("keydown", handleKeyDown);
+    }
+  }, [isOpen, closeMenu]);
 
   const menuVariants = {
     open: { opacity: 1, y: 0, display: "block" },
@@ -48,7 +77,7 @@ export default function Header() {
         {/* Logo */}
         <Link
           href="/"
-          className="font-medium tracking-tight text-2xl focus:outline-none focus:ring-2 focus:ring-teal-500 rounded-sm"
+          className="font-medium tracking-tight text-2xl focus:outline-none focus-visible:ring-2 focus-visible:ring-teal-500 rounded-sm"
         >
           webqid<span className="text-teal-500 font-serif">.</span>
         </Link>
@@ -57,38 +86,16 @@ export default function Header() {
         <div id="main-menu" className="hidden md:flex">
           <NavigationMenu>
             <NavigationMenuList>
-              <NavigationMenuItem>
-                <NavigationMenuLink
-                  asChild
-                  className={navigationMenuTriggerStyle()}
-                >
-                  <Link href="/#solutions">solutions</Link>
-                </NavigationMenuLink>
-              </NavigationMenuItem>
-              <NavigationMenuItem>
-                <NavigationMenuLink
-                  asChild
-                  className={navigationMenuTriggerStyle()}
-                >
-                  <Link href="/#studio">studio</Link>
-                </NavigationMenuLink>
-              </NavigationMenuItem>
-              <NavigationMenuItem>
-                <NavigationMenuLink
-                  asChild
-                  className={navigationMenuTriggerStyle()}
-                >
-                  <Link href="/#workspace">workspace</Link>
-                </NavigationMenuLink>
-              </NavigationMenuItem>
-              <NavigationMenuItem>
-                <NavigationMenuLink
-                  asChild
-                  className={navigationMenuTriggerStyle()}
-                >
-                  <Link href="/#contact">contact</Link>
-                </NavigationMenuLink>
-              </NavigationMenuItem>
+              {NAV_ITEMS.map((item) => (
+                <NavigationMenuItem key={item.href}>
+                  <NavigationMenuLink
+                    asChild
+                    className={navigationMenuTriggerStyle()}
+                  >
+                    <Link href={item.href}>{item.label}</Link>
+                  </NavigationMenuLink>
+                </NavigationMenuItem>
+              ))}
             </NavigationMenuList>
           </NavigationMenu>
         </div>
@@ -98,14 +105,17 @@ export default function Header() {
           id="mobile-menu-button"
           variant="ghost"
           size="icon"
-          aria-label={open ? "Close main menu" : "Open main menu"}
-          aria-expanded={open}
+          aria-label={isOpen ? "Close main menu" : "Open main menu"}
+          aria-expanded={isOpen}
           aria-controls="mobile-menu"
-          onClick={() => setOpen(!open)}
-          className="md:hidden text-neutral-400 hover:text-neutral-100 transition hover:bg-transparent focus:ring-2 focus:ring-teal-500 rounded-sm"
+          onClick={toggleMenu}
+          className="md:hidden text-neutral-400 hover:text-neutral-100 transition hover:bg-transparent focus-visible:ring-2 focus-visible:ring-teal-500 rounded-sm"
         >
-          {/* Icons are decorative */}
-          {open ? <X size={20} aria-hidden="true" /> : <Menu size={20} aria-hidden="true" />}
+          {isOpen ? (
+            <X size={20} aria-hidden="true" />
+          ) : (
+            <Menu size={20} aria-hidden="true" />
+          )}
         </Button>
       </div>
 
@@ -114,46 +124,26 @@ export default function Header() {
         id="mobile-menu"
         role="menu"
         aria-labelledby="mobile-menu-button"
-        aria-hidden={!open}
+        aria-hidden={!isOpen}
         initial={false}
-        animate={open ? "open" : "closed"}
+        animate={isOpen ? "open" : "closed"}
         variants={menuVariants}
         transition={{ duration: shouldReduceMotion ? 0 : 0.25, ease: "easeOut" }}
         className="md:hidden border-t border-neutral-800/50 bg-[#0A0A0A]/95 backdrop-blur-md"
       >
         <div className="container py-6 flex flex-col space-y-4 text-neutral-400 text-base">
-          <Link
-            href="/#solutions"
-            tabIndex={open ? 0 : -1}
-            onClick={() => setOpen(false)}
-            className="focus:outline-none focus:ring-2 focus:ring-teal-500 rounded-sm"
-          >
-            solutions
-          </Link>
-          <Link
-            href="/#studio"
-            tabIndex={open ? 0 : -1}
-            onClick={() => setOpen(false)}
-            className="focus:outline-none focus:ring-2 focus:ring-teal-500 rounded-sm"
-          >
-            studio
-          </Link>
-          <Link
-            href="/#workspace"
-            tabIndex={open ? 0 : -1}
-            onClick={() => setOpen(false)}
-            className="focus:outline-none focus:ring-2 focus:ring-teal-500 rounded-sm"
-          >
-            workspace
-          </Link>
-          <Link
-            href="/#contact"
-            tabIndex={open ? 0 : -1}
-            onClick={() => setOpen(false)}
-            className="focus:outline-none focus:ring-2 focus:ring-teal-500 rounded-sm"
-          >
-            contact
-          </Link>
+          {NAV_ITEMS.map((item) => (
+            <Link
+              key={item.href}
+              href={item.href}
+              role="menuitem"
+              tabIndex={isOpen ? 0 : -1}
+              onClick={closeMenu}
+              className="focus:outline-none focus-visible:ring-2 focus-visible:ring-teal-500 rounded-sm"
+            >
+              {item.label}
+            </Link>
+          ))}
         </div>
       </motion.div>
     </motion.nav>

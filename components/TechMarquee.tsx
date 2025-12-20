@@ -1,9 +1,15 @@
 "use client";
 
+import { useMemo } from "react";
 import { motion } from "motion/react";
 import Image from "next/image";
 
-const tools = [
+interface Tool {
+  readonly name: string;
+  readonly logo: string;
+}
+
+const TOOLS: readonly Tool[] = [
   { name: "Next.js", logo: "/icons/logo-next.svg" },
   { name: "TypeScript", logo: "/icons/logo-typescript.svg" },
   { name: "JavaScript", logo: "/icons/logo-javascript.svg" },
@@ -21,13 +27,21 @@ const tools = [
   { name: "Figma", logo: "/icons/logo-figma.svg" },
   { name: "Motion", logo: "/icons/logo-motion.svg" },
   { name: "GSAP", logo: "/icons/logo-gsap.svg" },
-];
+] as const;
 
-export default function TechMarquee() {
-  const repeated = [...tools, ...tools];
+/**
+ * Infinite scrolling marquee of technology logos.
+ * Duplicates items for seamless looping effect.
+ */
+export default function TechMarquee(): React.JSX.Element {
+  const repeatedTools = useMemo(() => [...TOOLS, ...TOOLS], []);
 
   return (
-    <div className="relative font-sans flex overflow-hidden py-8 mb-8">
+    <div
+      className="relative font-sans flex overflow-hidden py-8 mb-8"
+      aria-label="Technologies we use"
+      role="marquee"
+    >
       <motion.div
         className="flex gap-12 whitespace-nowrap"
         animate={{ x: ["0%", "-50%"] }}
@@ -37,25 +51,33 @@ export default function TechMarquee() {
           ease: "linear",
         }}
       >
-        {repeated.map((tool, i) => (
+        {repeatedTools.map((tool, index) => (
           <div
-            key={`${tool.name}-${i}`}
-            className="flex items-center gap-2 opacity-80 hover:opacity-100 transition mx-6"
+            key={`${tool.name}-${index}`}
+            className="flex items-center gap-2 opacity-80 hover:opacity-100 transition-opacity mx-6"
           >
             <Image
               src={tool.logo}
-              alt={tool.name}
+              alt=""
               width={28}
               height={28}
               className="object-contain"
+              aria-hidden="true"
             />
             <span className="text-md text-neutral-400">{tool.name}</span>
           </div>
         ))}
       </motion.div>
 
-      <div className="pointer-events-none absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-neutral-950 to-transparent" />
-      <div className="pointer-events-none absolute inset-y-0 right-0 w-32 bg-gradient-to-l from-neutral-950 to-transparent" />
+      {/* Gradient overlays */}
+      <div
+        className="pointer-events-none absolute inset-y-0 left-0 w-32 bg-linear-to-r from-neutral-950 to-transparent"
+        aria-hidden="true"
+      />
+      <div
+        className="pointer-events-none absolute inset-y-0 right-0 w-32 bg-linear-to-l from-neutral-950 to-transparent"
+        aria-hidden="true"
+      />
     </div>
   );
 }

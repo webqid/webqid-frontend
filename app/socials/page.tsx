@@ -2,15 +2,23 @@
 
 import { motion } from "motion/react";
 
-export default function BuiltWithIntent() {
+/**
+ * Animated splash page for social media presence.
+ */
+export default function SocialsPage(): React.JSX.Element {
   return (
-    <div className="h-screen flex flex-col items-center justify-center bg-[#0A0A0A] text-[#EDEDED] font-[geist-sans]">
+    <div
+      role="main"
+      aria-label="webqid social splash"
+      className="h-screen flex flex-col items-center justify-center bg-[#0A0A0A] text-[#EDEDED] font-[geist-sans]"
+    >
       {/* Scene 1 — dot fade-in */}
       <motion.div
         initial={{ opacity: 0, scale: 0 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 1.2, ease: "easeOut" }}
         className="text-[#00E0B8] text-6xl mb-4"
+        aria-hidden="true"
       >
         •
       </motion.div>
