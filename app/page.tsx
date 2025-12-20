@@ -64,7 +64,7 @@ export default function Home() {
           Precision-built Web frontends.
           <br />
           Engineered for trust, scalability, and performance.
-          <div className="my-6">
+          {/* <div className="my-6">
             <Button variant="outline" size="lg" asChild>
               <Link
                 href="https://demo.webqid.com"
@@ -75,7 +75,7 @@ export default function Home() {
                 demo
               </Link>
             </Button>
-          </div>
+          </div> */}
         </motion.div>
       </section>
 
@@ -152,7 +152,7 @@ export default function Home() {
             whileInView={{ opacity: 1 }}
             transition={{ duration: 1.2, ease: "easeOut" }}
             viewport={{ once: true }}
-            className="w-full h-[480px] md:h-[560px] lg:h-[600px] overflow-hidden"
+            className="w-full h-120 md:h-140 lg:h-150 overflow-hidden"
           >
             <Image
               src="/studio.jpg"
