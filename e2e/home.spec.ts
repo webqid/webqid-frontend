@@ -80,7 +80,7 @@ test.describe("webqid home", () => {
   });
 
   test("navigation is present", async ({ page }) => {
-    const nav = page.locator("header nav");
+    const nav = page.locator("nav[aria-label='Main navigation']");
     await expect(nav).toBeVisible();
   });
 
