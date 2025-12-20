@@ -86,6 +86,7 @@ test.describe("webqid home", () => {
 
   test("footer is present with social links", async ({ page }) => {
     const footer = page.locator("footer");
+    await footer.scrollIntoViewIfNeeded();
     await expect(footer).toBeVisible();
 
     // Check for social links
