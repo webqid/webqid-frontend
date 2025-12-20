@@ -47,17 +47,17 @@ const EXPERIENCE = [
     company: "AITA Protocol",
     location: "Remote",
     highlights: [
-      "Architected and built the core staking dashboard and LST interface from scratch using Next.js, TypeScript, and TailwindCSS",
-      "Established component library and design system reused across three production dApps",
-      "Implemented secure wallet connection flows and transaction signing with comprehensive error handling",
-      "Owned frontend technical decisions and aligned architecture with backend and product teams",
-      "Mentored junior developers on React patterns, accessibility, and testing strategies",
-      "Reduced initial page load by 40% through code splitting and optimized data fetching"
+      "Designed and built multiple frontend applications using React, Next.js, and TypeScript",
+      "Established component driven architecture reused across multiple dApps",
+      "Aligned UX and data flows with backend engineers and product teams, including AI driven decision making and automated flows (AWS)",
+      "Set up UI systems with TailwindCSS and Shadcn/Radix",
+      "Applied accessibility principles to interactive components",
+      "Designed edge cases, error handling, and fallback states in complex data environments",
+      "Mentored and provided technical guidance to designers and developers"
     ],
     stack: ["Next.js", "React", "TypeScript", "TailwindCSS", "Shadcn UI", "GraphQL", "Wagmi", "Ethers"],
     links: [
-      { label: "app.aitaprotocol.com", url: "https://app.aitaprotocol.com" },
-      { label: "lst.aitaprotocol.com", url: "https://lst.aitaprotocol.com" }
+      { label: "app.aitaprotocol.com", url: "https://app.aitaprotocol.com" }
     ]
   },
   {
