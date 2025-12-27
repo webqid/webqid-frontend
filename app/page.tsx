@@ -1,7 +1,8 @@
 "use client";
 
-import { useRef } from "react";
+import { useRef, useEffect } from "react";
 import { motion, useScroll, useTransform } from "motion/react";
+import gsap from "gsap";
 import Link from "next/link";
 
 import TechMarquee from "@/components/TechMarquee";
@@ -26,6 +27,85 @@ export default function Home(): React.JSX.Element {
 
   const studioY = useTransform(scrollYProgress, [0, 1], [0, -120]);
 
+
+  // GSAP refs for hero section
+  const heroTitleRef = useRef<HTMLHeadingElement>(null);
+  const heroSubtitleRef = useRef<HTMLParagraphElement>(null);
+  const heroDescRef = useRef<HTMLParagraphElement>(null);
+
+  useEffect(() => {
+    const tl = gsap.timeline();
+    // Flashy animation for the hero title
+    tl.fromTo(
+      heroTitleRef.current,
+      { opacity: 0, y: 60, scale: 0.7, color: "#0f172a" },
+      {
+        opacity: 1,
+        y: 0,
+        scale: 1.15,
+        color: "#14b8a6",
+        duration: 0.7,
+        ease: "bounce.out",
+        filter: "drop-shadow(0 0 32px #14b8a6)",
+      }
+    )
+      .to(
+        heroTitleRef.current,
+        {
+          scale: 1,
+          color: "#fff",
+          filter: "none",
+          duration: 0.4,
+          ease: "power2.inOut",
+        },
+        ">"
+      )
+      // Subtitle fade-in with scale
+      .fromTo(
+        heroSubtitleRef.current,
+        { opacity: 0, y: 40, scale: 0.8 },
+        {
+          opacity: 1,
+          y: 0,
+          scale: 1.1,
+          duration: 0.5,
+          ease: "power2.out",
+        },
+        "-=0.2"
+      )
+      .to(
+        heroSubtitleRef.current,
+        {
+          scale: 1,
+          duration: 0.3,
+          ease: "power2.inOut",
+        },
+        ">"
+      )
+      // Description fade-in with scale
+      .fromTo(
+        heroDescRef.current,
+        { opacity: 0, y: 40, scale: 0.8 },
+        {
+          opacity: 1,
+          y: 0,
+          scale: 1.05,
+          duration: 0.6,
+          ease: "power2.out",
+        },
+        "-=0.3"
+      )
+      .to(
+        heroDescRef.current,
+        {
+          scale: 1,
+          duration: 0.3,
+          ease: "power2.inOut",
+        },
+        ">"
+      );
+  }, []);
+
   return (
     <div
       ref={containerRef}
@@ -37,35 +117,29 @@ export default function Home(): React.JSX.Element {
         aria-labelledby="hero-title"
         className="h-[80vh] flex flex-col items-center justify-center relative overflow-hidden text-center px-4"
       >
-        <motion.h1
+        <h1
           id="hero-title"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.3, duration: 0.8, ease: "easeOut" }}
+          ref={heroTitleRef}
           className="text-7xl md:text-8xl font-medium tracking-tight relative after:content-['.'] after:text-teal-500 after:font-[geist-mono]"
         >
           webqid
-        </motion.h1>
+        </h1>
 
-        <motion.p
+        <p
+          ref={heroSubtitleRef}
           className="mt-6 text-xl text-neutral-400 font-light tracking-wide"
-          initial={{ opacity: 0, y: 10 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.5, duration: 0.8, ease: "easeOut" }}
         >
           Built with intent.
-        </motion.p>
+        </p>
 
-        <motion.p
+        <p
+          ref={heroDescRef}
           className="mt-4 text-lg text-neutral-500 max-w-md leading-relaxed font-light tracking-wide"
-          initial={{ opacity: 0, y: 10 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.9, duration: 0.8, ease: "easeOut" }}
         >
           Precision-built Web frontends.
           <br />
           Engineered for trust, scalability, and performance.
-        </motion.p>
+        </p>
       </section>
 
       {/* SOLUTIONS */}
