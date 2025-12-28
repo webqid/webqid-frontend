@@ -15,7 +15,7 @@ interface SectionTitleProps {
 
 /**
  * Animated section heading with decorative period.
- * Uses h2 for proper document outline.
+ * Uses h1 for proper document outline.
  */
 export function SectionTitle({
   children,
@@ -23,7 +23,7 @@ export function SectionTitle({
   className,
 }: SectionTitleProps): React.JSX.Element {
   return (
-    <motion.h2
+    <motion.h1
       id={id}
       initial={{ opacity: 0, y: 30 }}
       whileInView={{ opacity: 1, y: 0 }}
@@ -36,6 +36,6 @@ export function SectionTitle({
       )}
     >
       {children}
-    </motion.h2>
+    </motion.h1>
   );
 }
