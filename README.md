@@ -2,7 +2,7 @@
 
 ![webqid og-image](https://www.webqid.com/og-image.png)
 
-**Precision-built Web frontends engineered for trust, scalability, and performance.**
+**Precision-built frontends engineered for trust, scalability, and performance.**
 
 ---
 
@@ -24,7 +24,7 @@
 
 ## Overview
 
-**webqid.** is a senior Web3 frontend engineering studio focused on technical minimalism, calm precision, and reliable systems. The site demonstrates shipped work, technical depth, and multiple conversion paths for high-value Web3 clients.
+**webqid.** Senior Frontend Developer focused on technical minimalism, calm precision, and reliable systems. The site demonstrates shipped work, technical depth, and multiple conversion paths.
 
 Built with:
 
@@ -37,6 +37,13 @@ Built with:
 - **Lenis** for smooth scrolling
 - **Storybook 10** for component development
 - **Playwright** for E2E testing
+
+---
+
+## Branches
+
+- **master**: Stable production branch with released features.
+- **development**: Active development branch for new features and updates.
 
 ---
 
@@ -59,21 +66,7 @@ app/
   ├── layout.tsx              # Root layout with fonts and providers
   ├── page.tsx                # Landing page
   ├── robots.ts               # SEO robots
-  ├── sitemap.ts              # SEO sitemap
-  ├── work/                   # Work index page (case studies)
-  ├── case-study/[slug]/      # Individual case study pages
-  ├── solutions/              # Services overview
-  ├── studio/                 # Studio philosophy/about
-  ├── writing/                # Blog/insights (coming soon)
-  ├── contact/                # Contact page (CTAs, form)
-  ├── about/                  # About page
-  ├── cv/                     # CV page
-  ├── collaborations/         # Collaborations page
-  ├── socials/                # Social links page
-  ├── dapp-development/       # Service page
-  ├── frontend-engineering/   # Service page
-  ├── wallet-connect/         # Service page
-  └── web3-integration/       # Service page
+  └── sitemap.ts              # SEO sitemap
 
 components/
   ├── ui/                     # Shadcn UI components
@@ -101,9 +94,6 @@ components/
   ├── PayOff.tsx              # Tagline component
   └── SmoothScrollProvider.tsx # Lenis scroll wrapper
 
-content/
-  ├── case-studies.ts         # Case study data/content
-  └── solutions.ts            # Content data
 
 e2e/
   └── home.spec.ts            # Playwright E2E tests
@@ -121,48 +111,6 @@ lib/
 styles/
   └── globals.css             # Global styles and design tokens
 ```
-
----
-
-## Work & Case Studies
-
-See all shipped projects at [webqid.com/work](https://www.webqid.com/work).
-
-- **AITA Protocol** — DeFi staking dashboard, referral system, LST platform. [app.aitaprotocol.com](https://app.aitaprotocol.com)
-- **Neby Exchange** — DEX UI, wallet integration, performance. [app.neby.exchange](https://app.neby.exchange)
-- **Paladin Punks & Streetart Frankey** — NFT minting, marketplace, brand collabs.
-
-Each case study page details the challenge, technical approach, and outcome, with screenshots and stack badges.
-
-## Writing
-
-Technical deep-dives and engineering notes coming soon at [webqid.com/writing](https://www.webqid.com/writing).
-
-## Storybook
-
-Isolated component development environment with accessibility testing.
-
-### Start Storybook
-
-```bash
-npm run storybook
-```
-
-### Features
-
-- Isolated UI development
-- Motion previews
-- Section primitives
-- Typography and color tokens
-- Accessibility testing (a11y addon)
-- Vitest integration for component tests
-
-### Addons
-
-- `@storybook/addon-docs` for documentation
-- `@storybook/addon-a11y` for accessibility checks
-- `@storybook/addon-vitest` for testing
-- `@chromatic-com/storybook` for visual regression
 
 ---
 
@@ -224,12 +172,6 @@ npm run test:e2e
 ```
 
 Test files are located in the `e2e/` directory.
-
----
-
-## License
-
-MIT
 
 ---
 

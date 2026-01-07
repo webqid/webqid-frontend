@@ -10,6 +10,7 @@ import {
   SectionParagraph,
 } from "@/components/sections";
 import { ExpertiseSlider } from "@/components/ExpertiseSlider";
+import TechMarquee from "@/components/TechMarquee";
 
 /** Skill definition with label, description and expertise level */
 interface Skill {
@@ -345,6 +346,7 @@ export default function CVPage(): React.JSX.Element {
           </a>
 
         </motion.nav>
+       
       </section>
 
       {/* PROFESSIONAL SUMMARY */}
@@ -415,11 +417,17 @@ export default function CVPage(): React.JSX.Element {
             </motion.div>
           ))}
 
-          <p className="text-xs text-neutral-600 text-center mt-8 font-light">
+          <p className="text-xs text-neutral-600 text-center my-8 font-light">
             Levels based on years of practice, project complexity, and depth of
             knowledge.
           </p>
+          
+          <TechMarquee />
+
+
         </div>
+
+         
       </Section>
 
       {/* EXPERIENCE */}
