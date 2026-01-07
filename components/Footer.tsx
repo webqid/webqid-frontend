@@ -70,7 +70,7 @@ export default function Footer(): React.JSX.Element {
         </div>
 
         {/* Work */}
-        <nav aria-labelledby="footer-work">
+        {/* <nav aria-labelledby="footer-work">
           <h3 id="footer-work" className="text-neutral-200 mb-4">
             Work
           </h3>
@@ -86,10 +86,10 @@ export default function Footer(): React.JSX.Element {
               </li>
             ))}
           </ul>
-        </nav>
+        </nav> */}
 
         {/* Services */}
-        <nav aria-labelledby="footer-services">
+        {/* <nav aria-labelledby="footer-services">
           <h3 id="footer-services" className="text-neutral-200 mb-4">
             Services
           </h3>
@@ -105,10 +105,10 @@ export default function Footer(): React.JSX.Element {
               </li>
             ))}
           </ul>
-        </nav>
+        </nav> */}
 
         {/* Studio */}
-        <nav aria-labelledby="footer-studio">
+        {/* <nav aria-labelledby="footer-studio">
           <h3 id="footer-studio" className="text-neutral-200 mb-3">
             Studio
           </h3>
@@ -124,10 +124,10 @@ export default function Footer(): React.JSX.Element {
               </li>
             ))}
           </ul>
-        </nav>
+        </nav> */}
 
         {/* Connect */}
-        <div aria-labelledby="footer-connect">
+        {/* <div aria-labelledby="footer-connect">
           <h3 id="footer-connect" className="text-neutral-200 mb-4">
             Connect
           </h3>
@@ -161,14 +161,14 @@ export default function Footer(): React.JSX.Element {
               hello@webqid.com
             </a>
           </div>
-        </div>
+        </div> */}
       </div>
 
       {/* Copyright */}
       <div className="border-t border-neutral-800/50">
         <div className="container px-4 py-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-neutral-500 text-xs">
           <p>© {currentYear} webqid. All rights reserved.</p>
-          <p>Based in Netherlands, working globally.</p>
+          {/* <p>Based in Netherlands, working globally.</p> */}
         </div>
       </div>
     </footer>

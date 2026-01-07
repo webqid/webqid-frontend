@@ -1,533 +1,620 @@
 "use client";
 
-import { useRef, useEffect } from "react";
-import { motion, useScroll, useTransform } from "motion/react";
-import gsap from "gsap";
-import Link from "next/link";
+import { motion } from "motion/react";
 import Image from "next/image";
 
-import TechMarquee from "@/components/TechMarquee";
-import StructuredData from "@/components/StructuredData";
-import { SOLUTIONS } from "@/content/solutions";
-import { getFeaturedCaseStudy, getSecondaryProjects } from "@/lib/case-studies";
+import { Button } from "@/components/ui/button";
 import {
   Section,
   SectionTitle,
   SectionParagraph,
-  SolutionCard,
 } from "@/components/sections";
+import { ExpertiseSlider } from "@/components/ExpertiseSlider";
+
+/** Skill definition with label, description and expertise level */
+interface Skill {
+  readonly label: string;
+  readonly description: string;
+  readonly level: number;
+}
+
+/** Skills grouped by category */
+const SKILLS: Readonly<Record<string, readonly Skill[]>> = {
+  "Frontend Architecture": [
+    {
+      label: "React and Next.js",
+      description:
+        "Server components, App Router, ISR, performance optimization",
+      level: 95,
+    },
+    {
+      label: "TypeScript",
+      description:
+        "Type safety, generics, utility types, strict configurations",
+      level: 94,
+    },
+    {
+      label: "Component Systems",
+      description: "Design systems, atomic design, compound components",
+      level: 92,
+    },
+    {
+      label: "State Management",
+      description: "React Query, Zustand, context patterns, server state",
+      level: 88,
+    },
+  ],
+  "UI and Styling": [
+    {
+      label: "TailwindCSS",
+      description: "Utility first, custom configurations, design tokens",
+      level: 95,
+    },
+    {
+      label: "Shadcn UI and Radix",
+      description: "Accessible primitives, headless components, composition",
+      level: 92,
+    },
+    {
+      label: "CSS Architecture",
+      description: "Responsive design, CSS variables, layout patterns",
+      level: 90,
+    },
+    {
+      label: "Motion and Animation",
+      description: "Framer Motion, GSAP, performant transitions",
+      level: 85,
+    },
+  ],
+  Accessibility: [
+    {
+      label: "Semantic HTML",
+      description: "Proper heading structure, landmarks, document outline",
+      level: 90,
+    },
+    {
+      label: "ARIA and WCAG",
+      description: "Accessible patterns, compliance testing, screen readers",
+      level: 88,
+    },
+    {
+      label: "Keyboard Navigation",
+      description: "Focus management, tab order, skip links",
+      level: 88,
+    },
+  ],
+  "Tooling and Workflow": [
+    {
+      label: "Testing",
+      description: "Playwright, Vitest, Testing Library, E2E strategies",
+      level: 80,
+    },
+    {
+      label: "Build Tools",
+      description: "Vite, Turbopack, bundler optimization, CI/CD",
+      level: 85,
+    },
+    {
+      label: "Version Control",
+      description: "Git workflows, code review, branch strategies",
+      level: 90,
+    },
+  ],
+  Web3: [
+    {
+      label: "Wallet Integration",
+      description: "Wagmi, RainbowKit, WalletConnect, multi chain support",
+      level: 90,
+    },
+    {
+      label: "Blockchain Data",
+      description: "Viem, Ethers.js, contract reads, event subscriptions",
+      level: 88,
+    },
+    {
+      label: "Signing Flows",
+      description: "Transaction handling, message signing, security patterns",
+      level: 88,
+    },
+    {
+      label: "dApp Architecture",
+      description: "Staking interfaces, trading UIs, dashboard patterns",
+      level: 85,
+    },
+  ],
+} as const;
+
+/** Experience entry */
+interface ExperienceEntry {
+  readonly period: string;
+  readonly role: string;
+  readonly company: string;
+  readonly location: string;
+  readonly highlights: readonly string[];
+  readonly stack: readonly string[];
+  readonly links?: readonly { readonly label: string; readonly url: string }[];
+}
+
+const EXPERIENCE: readonly ExperienceEntry[] = [
+  {
+    period: "2023 to 2025",
+    role: "Frontend Developer",
+    company: "AITA Protocol",
+    location: "Remote",
+    highlights: [
+      "Designed and built multiple frontend applications using React, Next.js, and TypeScript",
+      "Established component driven architecture reused across multiple dApps",
+      "Aligned UX and data flows with backend engineers and product teams, including AI driven decision making and automated flows (AWS)",
+      "Set up UI systems with TailwindCSS and Shadcn/Radix",
+      "Applied accessibility principles to interactive components",
+      "Designed edge cases, error handling, and fallback states in complex data environments",
+      "Mentored and provided technical guidance to designers and developers",
+    ],
+    stack: [
+      "Next.js",
+      "React",
+      "TypeScript",
+      "TailwindCSS",
+      "Shadcn UI",
+      "GraphQL",
+      "Wagmi",
+      "Ethers",
+    ],
+    links: [{ label: "app.aitaprotocol.com", url: "https://app.aitaprotocol.com" }],
+  },
+  {
+    period: "2021 to present",
+    role: "Founder and Frontend Developer",
+    company: "webqid",
+    location: "Wageningen, Netherlands",
+    highlights: [
+      "Founded and operate a frontend studio used as both client delivery platform and R&D environment",
+      "Explore and prototype modern frontend patterns, UX flows, and on-chain integrations",
+      "Built reusable component libraries with Shadcn UI patterns",
+      "Implemented Playwright E2E testing and preview deployment workflows",
+      "Developed AI image generation proof of concept integrating Stability AI API with FastAPI backend",
+    ],
+    stack: [
+      "Next.js",
+      "React",
+      "TypeScript",
+      "TailwindCSS",
+      "Shadcn UI",
+      "Framer Motion",
+      "GSAP",
+      "Playwright",
+      "Wagmi",
+    ],
+    links: [
+      { label: "webqid.com", url: "https://www.webqid.com" },
+      { label: "dashboard.webqid.com", url: "https://dashboard.webqid.com" },
+    ],
+  },
+  {
+    period: "2022 to 2023",
+    role: "Frontend Developer",
+    company: "Emico",
+    location: "Rhenen, Netherlands",
+    highlights: [
+      "Built and maintained e-commerce frontends for Zitmaxx and Tegeldepot brands",
+      "Implemented Playwright E2E tests covering critical checkout and payment flows",
+      "Developed custom UI components with TailwindCSS and Hyva theme framework",
+    ],
+    stack: ["React", "Hyva", "Magento", "TailwindCSS", "Alpine.js", "Playwright"],
+  },
+  {
+    period: "2018 to 2020",
+    role: "Frontend Developer",
+    company: "Infocaster B.V. and DotOffice B.V.",
+    location: "Netherlands",
+    highlights: [
+      "Led frontend development for TeamNL website (Dutch Olympic Committee) with focus on performance",
+      "Built educational dashboards for government and public sector projects",
+      "Developed document generation tooling within Microsoft 365 ecosystem",
+    ],
+    stack: ["Vue.js", "AngularJS", "C#", ".NET", "Microsoft 365"],
+  },
+  {
+    period: "2001 to 2018",
+    role: "Software Developer and Co-founder",
+    company: "Prodev B.V., Covadis B.V., Business Media B.V.",
+    location: "Netherlands",
+    highlights: [
+      "Co-founded Prodev B.V. and delivered custom platforms for housing, logistics, and legal sectors",
+      "Developed medical software with strict compliance and data security requirements",
+      "Built GIS applications for local government infrastructure planning",
+      "Full stack development across .NET, SQL Server, and JavaScript ecosystems",
+    ],
+    stack: [".NET", "C#", "SQL Server", "JavaScript", "jQuery"],
+  },
+] as const;
+
+/** Education entry */
+interface EducationEntry {
+  readonly institution: string;
+  readonly field: string;
+  readonly period: string;
+}
+
+const EDUCATION: readonly EducationEntry[] = [
+  {
+    institution: "Hogeschool Utrecht",
+    field: "Journalism",
+    period: "1998 to 1999",
+  },
+  {
+    institution: "Neder Veluwe College, Ede",
+    field: "MBO Retail",
+    period: "1994 to 1998",
+  },
+] as const;
+
+/** Language proficiency */
+interface LanguageEntry {
+  readonly language: string;
+  readonly level: string;
+}
+
+const LANGUAGES: readonly LanguageEntry[] = [
+  { language: "Dutch", level: "Native" },
+  { language: "English", level: "Fluent" },
+] as const;
 
 /**
- * Home page with hero, featured work, solutions, studio, and contact sections.
- * Redesigned to lead with proof of work and multiple conversion paths.
+ * CV page showcasing professional experience and skills.
  */
-export default function Home(): React.JSX.Element {
-  const containerRef = useRef<HTMLDivElement>(null);
-  const featured = getFeaturedCaseStudy();
-  const secondary = getSecondaryProjects();
-
-  const { scrollYProgress } = useScroll({
-    target: containerRef,
-    offset: ["start start", "end end"],
-  });
-
-  const studioY = useTransform(scrollYProgress, [0, 1], [0, -120]);
-
-
-  // GSAP refs for hero section
-  const heroTitleRef = useRef<HTMLHeadingElement>(null);
-  const heroSubtitleRef = useRef<HTMLParagraphElement>(null);
-  const heroDescRef = useRef<HTMLParagraphElement>(null);
-
-  useEffect(() => {
-    const tl = gsap.timeline();
-    // Flashy animation for the hero title
-    tl.fromTo(
-      heroTitleRef.current,
-      { opacity: 0, y: 60, scale: 0.7, color: "#0f172a" },
-      {
-        opacity: 1,
-        y: 0,
-        scale: 1.15,
-        color: "#14b8a6",
-        duration: 0.7,
-        ease: "bounce.out",
-        filter: "drop-shadow(0 0 32px #14b8a6)",
-      }
-    )
-      .to(
-        heroTitleRef.current,
-        {
-          scale: 1,
-          color: "#fff",
-          filter: "none",
-          duration: 0.4,
-          ease: "power2.inOut",
-        },
-        ">"
-      )
-      // Subtitle fade-in with scale
-      .fromTo(
-        heroSubtitleRef.current,
-        { opacity: 0, y: 40, scale: 0.8 },
-        {
-          opacity: 1,
-          y: 0,
-          scale: 1.1,
-          duration: 0.5,
-          ease: "power2.out",
-        },
-        "-=0.2"
-      )
-      .to(
-        heroSubtitleRef.current,
-        {
-          scale: 1,
-          duration: 0.3,
-          ease: "power2.inOut",
-        },
-        ">"
-      )
-      // Description fade-in with scale
-      .fromTo(
-        heroDescRef.current,
-        { opacity: 0, y: 40, scale: 0.8 },
-        {
-          opacity: 1,
-          y: 0,
-          scale: 1.05,
-          duration: 0.6,
-          ease: "power2.out",
-        },
-        "-=0.3"
-      )
-      .to(
-        heroDescRef.current,
-        {
-          scale: 1,
-          duration: 0.3,
-          ease: "power2.inOut",
-        },
-        ">"
-      );
-  }, []);
-
-  // Structured data for homepage
-  const orgSchema = {
-    "@context": "https://schema.org",
-    "@type": "Organization",
-    name: "webqid",
-    url: "https://www.webqid.com",
-    logo: "https://www.webqid.com/logo.png",
-    description: "Senior Web3 frontend engineering studio specializing in DeFi, NFT, and trading dApps.",
-    sameAs: [
-      "https://github.com/webqid",
-      "https://www.linkedin.com/company/webqid/",
-      "https://x.com/webqid",
-    ],
-    contactPoint: [
-      {
-        "@type": "ContactPoint",
-        email: "hello@webqid.com",
-        contactType: "sales",
-        url: "https://www.webqid.com/contact",
-      },
-    ],
-    knowsAbout: [
-      "Web3 Development",
-      "DeFi Frontends",
-      "Next.js",
-      "TypeScript",
-      "Wagmi",
-      "React",
-    ],
-  };
-
-  const portfolioSchema = {
-    "@context": "https://schema.org",
-    "@type": "CreativeWork",
-    name: "AITA Protocol",
-    url: "https://app.aitaprotocol.com",
-    creator: { "@type": "Organization", name: "webqid" },
-    description:
-      "DeFi staking dashboard, referral system, LST platform. Next.js, Wagmi, GraphQL.",
-    image: "https://www.webqid.com/work/aita-dashboard-1.webp",
-  };
+export default function CVPage(): React.JSX.Element {
   return (
-    <>
-      <StructuredData data={orgSchema} />
-      <StructuredData data={portfolioSchema} />
-      <div
-        ref={containerRef}
-        className="text-neutral-300 font-[geist-sans] antialiased flex flex-col"
-      >
+    <div className="text-neutral-300 font-[geist-sans] antialiased flex flex-col">
       {/* HERO */}
       <section
         id="hero"
         aria-labelledby="hero-title"
-        aria-label="Homepage hero section"
-        className="h-[80vh] flex flex-col items-center justify-center relative overflow-hidden text-center px-4"
+        className="min-h-[60vh] flex flex-col items-center justify-center relative overflow-hidden text-center py-24 px-4"
       >
-        <h1
+        <motion.div
+          initial={{ opacity: 0, scale: 0.95 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
+          className="w-28 h-28 relative rounded-full overflow-hidden mb-8 ring-2 ring-neutral-300"
+        >
+          <Image
+            src="/jcvandeweerd-pfp.png"
+            alt="Christian van de Weerd"
+            fill
+            className="object-cover grayscale brightness-90"
+            priority
+          />
+        </motion.div>
+
+        <motion.h1
           id="hero-title"
-          ref={heroTitleRef}
-          tabIndex={0}
-          className="text-7xl md:text-8xl font-medium tracking-tight relative after:content-['.'] after:text-teal-500 after:font-[geist-mono] focus-visible:ring-2 focus-visible:ring-teal-500 rounded-sm"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.2, duration: 0.8, ease: "easeOut" }}
+          className="text-5xl md:text-6xl font-medium tracking-tight"
         >
-          webqid
-        </h1>
+          Christian van de Weerd
+        </motion.h1>
 
-        <p
-          ref={heroSubtitleRef}
-          className="mt-6 text-xl text-neutral-400 font-light tracking-wide"
+        <motion.p
+          className="mt-4 text-xl text-neutral-300 font-light tracking-wide"
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.4, duration: 0.8, ease: "easeOut" }}
         >
-          Built with intent.
-        </p>
+          Frontend Developer
+        </motion.p>
 
-        <p
-          ref={heroDescRef}
-          className="mt-4 text-lg text-neutral-500 max-w-md leading-relaxed font-light tracking-wide"
+        <motion.p
+          className="mt-6 max-w-xl text-neutral-400 font-light leading-relaxed"
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.5, duration: 0.8, ease: "easeOut" }}
         >
-          Precision-built Web frontends.
-          <br />
-          Engineered for trust, scalability, and performance.
-        </p>
+          I build frontend architecture that turns complex systems
+          into clear, usable interfaces. Focus on structure, accessibility, and
+          long term maintainability.
+        </motion.p>
 
-        <Link
-          href="#featured-work"
-          className="mt-10 inline-block px-6 py-3 bg-teal-500/10 border border-teal-500/20 rounded-xl text-teal-400 hover:bg-teal-500/20 transition font-sans tracking-tight text-lg font-medium focus-visible:ring-2 focus-visible:ring-teal-500"
+        <motion.nav
+          aria-label="Social links"
+          className="flex flex-wrap items-center justify-center gap-4 mt-8 font-sans"
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.6, duration: 0.8, ease: "easeOut" }}
         >
-          See our work ↓
-        </Link>
+          <a
+            href="https://www.linkedin.com/in/jcvandeweerd"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-sm text-neutral-500 hover:text-teal-400 transition-colors"
+          >
+            LinkedIn
+          </a>
+          <span className="text-neutral-700" aria-hidden="true">
+            |
+          </span>
+          <a
+            href="https://github.com/webqid"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-sm text-neutral-500 hover:text-teal-400 transition-colors"
+          >
+            GitHub
+          </a>
+
+        </motion.nav>
       </section>
 
-      {/* FEATURED WORK */}
-      <section
-        id="featured-work"
-        aria-labelledby="featured-work-title"
-        className="py-24 border-t border-neutral-800/50"
-      >
-        <div className="container mx-auto px-4">
-          <div className="flex items-end justify-between mb-12">
-            <div>
-              <span className="text-teal-400 font-mono text-sm uppercase tracking-wider">
-                Featured
-              </span>
-              <h2
-                id="featured-work-title"
-                className="text-4xl md:text-5xl font-bold mt-2"
-              >
-                Recent Work
-              </h2>
-            </div>
-            <Link
-              href="/work"
-              className="hidden md:flex items-center gap-2 text-neutral-400 hover:text-teal-400 transition-colors"
-            >
-              <span>View all</span>
-              <span>→</span>
-            </Link>
+      {/* PROFESSIONAL SUMMARY */}
+      <Section id="summary" aria-labelledby="summary-title">
+        <div className="container max-w-3xl mx-auto text-center space-y-6 px-4">
+          <SectionTitle id="summary-title">Summary</SectionTitle>
+
+          <SectionParagraph delay={0.1}>
+            Senior Frontend Developer with 20+ years of experience building scalable,
+            production-grade web applications. Expert in React, Next.js, and TypeScript, with a strong
+            focus on performance, accessibility, and component-driven architecture.
+          </SectionParagraph>
+
+          <SectionParagraph delay={0.2}>
+            Proven track record in designing and maintaining complex, data-intensive user interfaces,
+            working closely with product and backend teams. Experienced in establishing clear
+            frontend architectures, reusable UI systems, and consistent design patterns.
+          </SectionParagraph>
+
+          <SectionParagraph delay={0.3}>
+            Passionate about clean code, best practices, and building
+            high-quality frontend solutions that stand the test of time.
+          </SectionParagraph>
+
+          <SectionParagraph delay={0.4}>
+            <span className="text-teal-500">Available for hybrid and remote opportunities.</span>
+          </SectionParagraph>
+        </div>
+      </Section>
+
+      {/* SKILLS BY CATEGORY */}
+      <Section id="skills" aria-labelledby="skills-title">
+        <div className="container max-w-4xl mx-auto space-y-16 px-4">
+          <div className="text-center">
+            <SectionTitle id="skills-title">Skills</SectionTitle>
+            <SectionParagraph className="mt-4" delay={0.1}>
+              Expertise built over two decades of focused practice.
+            </SectionParagraph>
           </div>
 
-          {/* Featured Project - AITA */}
-          {featured && (
+          {Object.entries(SKILLS).map(([category, skills], categoryIndex) => (
             <motion.div
-              initial={{ opacity: 0, y: 40 }}
+              key={category}
+              initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, ease: "easeOut" }}
+              transition={{
+                delay: 0.1 + categoryIndex * 0.05,
+                duration: 0.6,
+                ease: "easeOut",
+              }}
               viewport={{ once: true }}
-              className="mb-12"
+              className="space-y-6"
             >
-              <Link
-                href={`/case-study/${featured.slug}`}
-                className="group block"
-              >
-                <div className="relative rounded-2xl overflow-hidden border border-neutral-800 bg-neutral-950 transition-all duration-300 hover:border-teal-500/50 hover:shadow-2xl hover:shadow-teal-500/10">
-                  <div className="grid lg:grid-cols-2 gap-0">
-                    {/* Image */}
-                    <div className="relative aspect-16/10 lg:aspect-auto lg:min-h-100 overflow-hidden">
-                      {featured.screenshots?.[0] && (
-                        <Image
-                          src={featured.screenshots[0]}
-                          alt={`${featured.title} dashboard preview`}
-                          fill
-                          className="object-cover transition-transform duration-500 group-hover:scale-105"
-                          priority
-                        />
-                      )}
-                      <div className="absolute inset-0 bg-linear-to-r from-transparent to-neutral-950/50 lg:block hidden" />
-                    </div>
-
-                    {/* Content */}
-                    <div className="p-8 lg:p-12 flex flex-col justify-center">
-                      <div className="flex items-center gap-3 mb-4">
-                        <span className="px-3 py-1 rounded-full text-xs font-mono uppercase tracking-wider bg-teal-500/20 text-teal-400 border border-teal-500/30">
-                          {featured.status}
-                        </span>
-                        <span className="text-neutral-500 text-sm">
-                          {featured.period}
-                        </span>
-                      </div>
-
-                      <h3 className="text-3xl lg:text-4xl font-bold text-white mb-3 group-hover:text-teal-400 transition-colors">
-                        {featured.title}
-                      </h3>
-
-                      <p className="text-teal-400 font-mono text-sm mb-4">
-                        {featured.description}
-                      </p>
-
-                      <p className="text-neutral-400 leading-relaxed mb-6 text-lg">
-                        {featured.tagline}
-                      </p>
-
-                      {/* Tech Stack */}
-                      <div className="flex flex-wrap gap-2 mb-8">
-                        {featured.stack.slice(0, 5).map((tech) => (
-                          <span
-                            key={tech}
-                            className="bg-neutral-800/50 text-neutral-400 text-xs px-3 py-1 rounded-full font-mono"
-                          >
-                            {tech}
-                          </span>
-                        ))}
-                        {featured.stack.length > 5 && (
-                          <span className="text-neutral-500 text-xs px-2 py-1">
-                            +{featured.stack.length - 5} more
-                          </span>
-                        )}
-                      </div>
-
-                      <div className="flex items-center text-teal-400 font-medium group-hover:gap-3 transition-all">
-                        <span>Read case study</span>
-                        <span className="ml-2 transition-transform group-hover:translate-x-1">
-                          →
-                        </span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </Link>
+              <h3 className="text-xs font-mono text-teal-500/80 uppercase tracking-wider">
+                {category}
+              </h3>
+              <div className="grid gap-6 sm:grid-cols-2">
+                {skills.map((skill, skillIndex) => (
+                  <ExpertiseSlider
+                    key={skill.label}
+                    label={skill.label}
+                    description={skill.description}
+                    level={skill.level}
+                    delay={0.05 + skillIndex * 0.05}
+                  />
+                ))}
+              </div>
             </motion.div>
-          )}
+          ))}
 
-          {/* Secondary Projects */}
-          <div className="grid md:grid-cols-2 gap-6 mb-12">
-            {secondary.map((project, index) => (
-              <motion.div
-                key={project.slug}
-                initial={{ opacity: 0, y: 30 }}
+          <p className="text-xs text-neutral-600 text-center mt-8 font-light">
+            Levels based on years of practice, project complexity, and depth of
+            knowledge.
+          </p>
+        </div>
+      </Section>
+
+      {/* EXPERIENCE */}
+      <Section id="experience" aria-labelledby="experience-title">
+        <div className="container max-w-3xl mx-auto space-y-10 px-4">
+          <div className="text-center">
+            <SectionTitle id="experience-title">Experience</SectionTitle>
+          </div>
+
+          <div className="space-y-12 mt-12">
+            {EXPERIENCE.map((exp, index) => (
+              <motion.article
+                key={`${exp.period}-${exp.company}`}
+                initial={{ opacity: 0, y: 16 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{
-                  duration: 0.5,
-                  delay: index * 0.1,
+                  delay: 0.1 + index * 0.05,
+                  duration: 0.6,
                   ease: "easeOut",
                 }}
                 viewport={{ once: true }}
+                className="border-l-2 border-neutral-800 pl-6 py-2"
               >
-                <Link
-                  href={`/case-study/${project.slug}`}
-                  className="group block h-full"
-                >
-                  <div className="h-full rounded-xl border border-neutral-800 bg-neutral-950/50 p-6 transition-all duration-300 hover:border-teal-500/40 hover:bg-neutral-900/50">
-                    <div className="flex items-center justify-between mb-4">
-                      <span
-                        className={`px-2 py-0.5 rounded text-xs font-mono uppercase tracking-wider ${
-                          project.status === "live"
-                            ? "bg-teal-500/10 text-teal-400"
-                            : project.status === "ongoing"
-                              ? "bg-blue-500/10 text-blue-400"
-                              : "bg-neutral-500/10 text-neutral-400"
-                        }`}
+                <span className="text-xs font-mono text-neutral-500 tracking-wide">
+                  {exp.period}
+                </span>
+                <h3 className="text-lg font-medium text-neutral-100 mt-1">
+                  {exp.role}
+                </h3>
+                <p className="text-sm text-teal-400/80 font-light">
+                  {exp.company}{" "}
+                  <span className="text-neutral-600">/ {exp.location}</span>
+                </p>
+
+                <ul className="mt-4 space-y-2">
+                  {exp.highlights.map((highlight) => (
+                    <li
+                      key={highlight.slice(0, 30)}
+                      className="text-sm text-neutral-400 font-light leading-relaxed pl-4 relative before:content-[''] before:absolute before:left-0 before:top-2 before:w-1.5 before:h-1.5 before:bg-neutral-700 before:rounded-full"
+                    >
+                      {highlight}
+                    </li>
+                  ))}
+                </ul>
+
+                <div className="flex flex-wrap gap-1.5 mt-4">
+                  {exp.stack.map((tech) => (
+                    <span
+                      key={tech}
+                      className="text-[10px] font-mono text-neutral-500 bg-neutral-800/50 px-2 py-0.5 rounded"
+                    >
+                      {tech}
+                    </span>
+                  ))}
+                </div>
+
+                {exp.links && exp.links.length > 0 && (
+                  <div className="flex flex-wrap gap-3 mt-3">
+                    {exp.links.map((link) => (
+                      <a
+                        key={link.url}
+                        href={link.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-xs text-neutral-500 hover:text-teal-400 transition-colors font-mono"
                       >
-                        {project.status}
-                      </span>
-                      <span className="text-neutral-600 text-xs">
-                        {project.period}
-                      </span>
-                    </div>
-
-                    <h3 className="text-xl font-semibold text-white mb-2 group-hover:text-teal-400 transition-colors">
-                      {project.title}
-                    </h3>
-
-                    <p className="text-neutral-400 text-sm mb-3">
-                      {project.description}
-                    </p>
-
-                    <p className="text-neutral-500 text-sm leading-relaxed mb-4">
-                      {project.tagline}
-                    </p>
-
-                    <div className="flex flex-wrap gap-1.5 mb-4">
-                      {project.stack.slice(0, 4).map((tech) => (
-                        <span
-                          key={tech}
-                          className="bg-neutral-800/30 text-neutral-500 text-xs px-2 py-0.5 rounded font-mono"
-                        >
-                          {tech}
-                        </span>
-                      ))}
-                    </div>
-
-                    <div className="flex items-center text-teal-400 text-sm font-medium">
-                      <span>View project</span>
-                      <span className="ml-1.5 transition-transform group-hover:translate-x-1">
-                        →
-                      </span>
-                    </div>
+                        {link.label} →
+                      </a>
+                    ))}
                   </div>
-                </Link>
-              </motion.div>
-            ))}
-          </div>
-
-          {/* View All CTA (mobile) */}
-          <div className="md:hidden text-center">
-            <Link
-              href="/work"
-              className="inline-block px-6 py-3 bg-teal-500/10 border border-teal-500/20 rounded-xl text-teal-400 hover:bg-teal-500/20 transition font-medium"
-            >
-              View all work →
-            </Link>
-          </div>
-        </div>
-      </section>
-
-      {/* SOLUTIONS */}
-      <Section
-        id="solutions"
-        aria-labelledby="solutions-title"
-        aria-label="Solutions overview"
-      >
-        <div className="container text-center space-y-8 px-4">
-          <SectionTitle id="solutions-title">solutions</SectionTitle>
-          <SectionParagraph className="max-w-2xl mx-auto" delay={0.2}>
-            Web3 frontend engineering for staking, DeFi, NFT, and trading
-            dApps. Precision, speed, and clarity for technical teams.
-          </SectionParagraph>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-10">
-            {SOLUTIONS.map((solution, index) => (
-              <SolutionCard
-                key={solution.title}
-                index={index}
-                title={solution.title}
-                desc={solution.desc}
-              />
+                )}
+              </motion.article>
             ))}
           </div>
         </div>
       </Section>
 
-      {/* TECH MARQUEE */}
-      <TechMarquee aria-label="Tech stack marquee" />
+      {/* EDUCATION AND LANGUAGES */}
+      <Section id="education" aria-labelledby="education-title">
+        <div className="container max-w-3xl mx-auto px-4">
+          <div className="grid md:grid-cols-2 gap-12">
+            {/* Education */}
+            <div className="space-y-6">
+              <h2
+                id="education-title"
+                className="text-xs font-mono text-teal-500/80 uppercase tracking-wider"
+              >
+                Education
+              </h2>
+              {EDUCATION.map((edu, index) => (
+                <motion.div
+                  key={edu.institution}
+                  initial={{ opacity: 0, y: 16 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{
+                    delay: 0.1 + index * 0.08,
+                    duration: 0.6,
+                    ease: "easeOut",
+                  }}
+                  viewport={{ once: true }}
+                >
+                  <h3 className="text-sm font-medium text-neutral-100">
+                    {edu.field}
+                  </h3>
+                  <p className="text-sm text-neutral-500 font-light">
+                    {edu.institution}
+                  </p>
+                  <p className="text-xs font-mono text-neutral-600 mt-1">
+                    {edu.period}
+                  </p>
+                </motion.div>
+              ))}
+            </div>
 
-      {/* STUDIO */}
-      <Section id="studio" aria-labelledby="studio-title">
-        <motion.div style={{ y: studioY }}>
-          <div className="container text-center space-y-10 px-4">
-            <SectionTitle id="studio-title">studio</SectionTitle>
-
-            <SectionParagraph className="max-w-2xl mx-auto">
-              webqid. is a high-end engineering studio built on calm precision.
-              We translate complex on-chain systems into fast, human-centered
-              interfaces, engineered for trust and performance.
-            </SectionParagraph>
-
-            <SectionParagraph className="max-w-2xl mx-auto">
-              Our approach blends the rigor of software engineering with the
-              clarity of design. From staking dashboards and token systems to
-              wallet integrations and dApps. Every build is intentional,
-              reliable, and ready to scale.
-            </SectionParagraph>
-
-            <SectionParagraph className="max-w-2xl mx-auto">
-              We don&apos;t chase trends. We build foundations. Technology
-              should feel effortless. Refined, quiet, and precise.
-            </SectionParagraph>
-
-            {/* Credentials */}
-            <div className="grid sm:grid-cols-3 gap-8 max-w-3xl mx-auto pt-8">
-              <div className="text-center">
-                <div className="text-3xl font-bold text-teal-400 mb-2">
-                  20+
-                </div>
-                <div className="text-neutral-500 text-sm">
-                  Years in software
-                </div>
-              </div>
-              <div className="text-center">
-                <div className="text-3xl font-bold text-teal-400 mb-2">
-                  5+
-                </div>
-                <div className="text-neutral-500 text-sm">
-                  Years in Web3
-                </div>
-              </div>
-              <div className="text-center">
-                <div className="text-3xl font-bold text-teal-400 mb-2">
-                  NL
-                </div>
-                <div className="text-neutral-500 text-sm">
-                  Based, global work
-                </div>
-              </div>
+            {/* Languages */}
+            <div className="space-y-6">
+              <h2 className="text-xs font-mono text-teal-500/80 uppercase tracking-wider">
+                Languages
+              </h2>
+              <motion.div
+                initial={{ opacity: 0, y: 16 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.1, duration: 0.6, ease: "easeOut" }}
+                viewport={{ once: true }}
+                className="space-y-2"
+              >
+                {LANGUAGES.map((lang) => (
+                  <p
+                    key={lang.language}
+                    className="text-sm text-neutral-300 font-light"
+                  >
+                    {lang.language}{" "}
+                    <span className="text-neutral-600">({lang.level})</span>
+                  </p>
+                ))}
+              </motion.div>
             </div>
           </div>
-        </motion.div>
+        </div>
       </Section>
 
-      {/* CONTACT */}
+      {/* CALL TO ACTION */}
       <Section id="contact" aria-labelledby="contact-title">
-        <div className="container max-w-4xl mx-auto text-center py-16 space-y-8 px-4">
-          <SectionTitle id="contact-title">contact</SectionTitle>
+        <div className="container max-w-2xl mx-auto text-center space-y-8 px-4">
+          <SectionTitle id="contact-title">Work with me</SectionTitle>
 
-          <p className="text-neutral-400 font-light leading-relaxed tracking-wide max-w-xl mx-auto">
-            We partner with Web3 teams building production dApps. Ideal
-            projects: $30k+ budget, 8-12 week timelines, technical founders.
-          </p>
+          <SectionParagraph delay={0.1}>
+            Looking for a senior frontend engineer who builds with precision and
+            care?
+          </SectionParagraph>
 
-          {/* Primary CTAs */}
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4">
-            <motion.div
-              initial={{ opacity: 0, y: 10 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.2, duration: 0.6, ease: "easeOut" }}
-              viewport={{ once: true }}
-            >
-              <Link
-                href="mailto:hello@webqid.com"
-                className="inline-block px-6 py-3 bg-teal-500/10 border border-teal-500/20 rounded-xl text-teal-400 hover:bg-teal-500/20 transition font-sans tracking-tight text-lg font-medium"
-              >
-                Start a conversation
-              </Link>
-            </motion.div>
+          <motion.div
+            initial={{ opacity: 0, y: 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.2, duration: 0.6, ease: "easeOut" }}
+            viewport={{ once: true }}
+            className="flex flex-col sm:flex-row items-center justify-center gap-4 mt-8"
+          >
+            {/* <Button variant="outline" size="lg" asChild>
+              <Link href="/contact">Get in touch</Link>
+            </Button> */}
 
-            <motion.div
-              initial={{ opacity: 0, y: 10 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.3, duration: 0.6, ease: "easeOut" }}
-              viewport={{ once: true }}
-            >
+            <Button variant="outline" size="lg" asChild>
               <a
-                href="https://cal.com/webqid/intro"
+                href="https://www.linkedin.com/in/jcvandeweerd"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-block px-6 py-3 border border-neutral-700 rounded-xl text-neutral-200 hover:bg-neutral-900 transition font-sans tracking-tight text-lg font-medium"
               >
-                Book a technical discussion
+                LinkedIn
               </a>
-            </motion.div>
-          </div>
+            </Button>
 
-          <p className="text-neutral-500 text-sm font-light tracking-wide pt-4">
-            Based in the Netherlands, collaborating worldwide.
-            <br />
-            Expect a calm, thoughtful reply—no automation, just intent.
-          </p>
+            <Button variant="outline" size="lg" asChild>
+              <a
+                href="https://github.com/webqid"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                GitHub
+              </a>
+            </Button>
+          </motion.div>
+
+          <motion.p
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={{ delay: 0.4, duration: 0.6 }}
+            viewport={{ once: true }}
+            className="text-xs text-neutral-600 font-light mt-8"
+          >
+            Based in the Netherlands. Available for remote collaboration
+            worldwide.
+          </motion.p>
         </div>
       </Section>
     </div>
-    </>
   );
 }
