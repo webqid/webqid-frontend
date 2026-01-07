@@ -30,7 +30,7 @@ export default function ProfileCard(): React.JSX.Element {
             Christian van de Weerd
           </div>
           <div className="text-xs font-sans text-neutral-400">
-            Senior Web3 Developer
+            Senior Frontend Developer
           </div>
           <div className="text-[11px] italic font-sans text-neutral-500/80 mt-1 tracking-wide">
             &ldquo;Precision is how I show care.&rdquo;

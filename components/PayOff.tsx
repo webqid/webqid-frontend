@@ -14,7 +14,7 @@ export default function PayOff(): React.JSX.Element {
       <section aria-label="Brand payoff" className="text-center space-y-3">
         <p className="text-neutral-400 text-lg">Built with intent.</p>
         <p className="text-sm text-neutral-500">
-          webqid. — precision-built frontends for Web3 and beyond.
+          webqid. — precision-built frontends.
         </p>
       </section>
     </>

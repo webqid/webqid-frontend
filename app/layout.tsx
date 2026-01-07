@@ -33,17 +33,13 @@ const ibmPlexSerif = IBM_Plex_Serif({
 export const metadata: Metadata = {
   title: "webqid. — Precision-built Web frontends engineered for trust",
   description:
-    "webqid builds high-performance Web and Web3 frontends where clarity, speed, and precision meet. Minimalist. Scalable. Built with intent.",
+    "webqid builds high-performance frontends where clarity, speed, and precision meet. Minimalist. Scalable. Built with intent.",
   keywords: [
-    "Web3 frontend",
     "Web frontend",
     "Next.js",
     "React",
     "TypeScript",
     "UI engineering",
-    "Blockchain interfaces",
-    "dApp development",
-    "Wallet integration",
     "Design systems",
     "Vercel",
     "webqid",
@@ -73,7 +69,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "webqid. — Precision-built Web frontends engineered for trust",
     description:
-      "Minimalist. Reliable. Built with intent. Premium Web and Web3 frontends where design, motion, and code align.",
+      "Minimalist. Reliable. Built with intent. Frontends where design, motion, and code align.",
     images: ["/og-image.png"],
     creator: "@webqid",
   },
