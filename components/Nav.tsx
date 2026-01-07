@@ -19,10 +19,11 @@ interface NavItem {
 }
 
 const NAV_ITEMS: readonly NavItem[] = [
-  { label: "solutions", href: "/#solutions" },
-  { label: "studio", href: "/#studio" },
-  { label: "workspace", href: "/#workspace" },
-  { label: "contact", href: "/#contact" },
+  // { label: "work", href: "/work" },
+  // { label: "solutions", href: "/#solutions" },
+  // { label: "studio", href: "/#studio" },
+  // { label: "writing", href: "/writing" },
+  // { label: "contact", href: "/#contact" },
 ] as const;
 
 /**

@@ -9,8 +9,8 @@
 ## Shields and Badges
 
 <p align="left">
-  <img src="https://img.shields.io/badge/Next.js-16.0.10-black?logo=nextdotjs" />
-  <img src="https://img.shields.io/badge/React-19.2-61DAFB?logo=react&logoColor=black" />
+  <img src="https://img.shields.io/badge/Next.js-16.1.1-black?logo=nextdotjs" />
+  <img src="https://img.shields.io/badge/React-19.x-61DAFB?logo=react&logoColor=black" />
   <img src="https://img.shields.io/badge/TypeScript-5.x-3178C6?logo=typescript&logoColor=white" />
   <img src="https://img.shields.io/badge/TailwindCSS-4.x-38B2AC?logo=tailwindcss&logoColor=white" />
   <img src="https://img.shields.io/badge/Shadcn_UI-Components-000000" />
@@ -24,11 +24,11 @@
 
 ## Overview
 
-**webqid.** is a frontend engineering studio focused on technical minimalism, calm precision, and reliable systems.
+**webqid.** is a senior Web3 frontend engineering studio focused on technical minimalism, calm precision, and reliable systems. The site demonstrates shipped work, technical depth, and multiple conversion paths for high-value Web3 clients.
 
 Built with:
 
-- **Next.js 16.0.10** (App Router, Turbopack)
+- **Next.js 16.1.1** (App Router, Turbopack)
 - **React 19**
 - **TypeScript 5**
 - **TailwindCSS 4** with custom design tokens
@@ -60,9 +60,14 @@ app/
   ├── page.tsx                # Landing page
   ├── robots.ts               # SEO robots
   ├── sitemap.ts              # SEO sitemap
+  ├── work/                   # Work index page (case studies)
+  ├── case-study/[slug]/      # Individual case study pages
+  ├── solutions/              # Services overview
+  ├── studio/                 # Studio philosophy/about
+  ├── writing/                # Blog/insights (coming soon)
+  ├── contact/                # Contact page (CTAs, form)
   ├── about/                  # About page
   ├── cv/                     # CV page
-  ├── contact/                # Contact page
   ├── collaborations/         # Collaborations page
   ├── socials/                # Social links page
   ├── dapp-development/       # Service page
@@ -86,8 +91,9 @@ components/
   │   ├── SectionTitle.tsx
   │   ├── SectionParagraph.tsx
   │   └── SolutionCard.tsx
-  ├── Nav.tsx                 # Navigation
-  ├── Footer.tsx              # Footer
+  ├── Nav.tsx                 # Navigation (live links only)
+  ├── Footer.tsx              # Footer (live links, social)
+  ├── case-study/             # Case study components (Hero, StatsBar, TechStack, Gallery)
   ├── Carousel.tsx            # Custom carousel
   ├── ExpertiseSlider.tsx     # Skill level indicators
   ├── TechMarquee.tsx         # Tech stack marquee
@@ -96,6 +102,7 @@ components/
   └── SmoothScrollProvider.tsx # Lenis scroll wrapper
 
 content/
+  ├── case-studies.ts         # Case study data/content
   └── solutions.ts            # Content data
 
 e2e/
@@ -116,6 +123,20 @@ styles/
 ```
 
 ---
+
+## Work & Case Studies
+
+See all shipped projects at [webqid.com/work](https://www.webqid.com/work).
+
+- **AITA Protocol** — DeFi staking dashboard, referral system, LST platform. [app.aitaprotocol.com](https://app.aitaprotocol.com)
+- **Neby Exchange** — DEX UI, wallet integration, performance. [app.neby.exchange](https://app.neby.exchange)
+- **Paladin Punks & Streetart Frankey** — NFT minting, marketplace, brand collabs.
+
+Each case study page details the challenge, technical approach, and outcome, with screenshots and stack badges.
+
+## Writing
+
+Technical deep-dives and engineering notes coming soon at [webqid.com/writing](https://www.webqid.com/writing).
 
 ## Storybook
 

@@ -14,15 +14,23 @@ interface SocialLink {
   readonly icon: string;
 }
 
-const EXPERTISE_LINKS: readonly FooterLink[] = [
-  { label: "Frontend Engineering", href: "/frontend-engineering" },
+const WORK_LINKS: readonly FooterLink[] = [
+  { label: "All Projects", href: "/work" },
+  { label: "AITA Protocol", href: "/case-study/aita-protocol" },
+  { label: "Neby Exchange", href: "/case-study/neby-exchange" },
+  { label: "Paladin Punks", href: "/case-study/paladin-punks" },
+] as const;
+
+const SERVICES_LINKS: readonly FooterLink[] = [
+  { label: "Solutions", href: "/solutions" },
   { label: "Web3 Integration", href: "/web3-integration" },
   { label: "dApp Development", href: "/dapp-development" },
 ] as const;
 
 const STUDIO_LINKS: readonly FooterLink[] = [
   { label: "About", href: "/about" },
-  { label: "Collaborations", href: "/collaborations" },
+  { label: "Writing", href: "/writing" },
+  { label: "Contact", href: "/contact" },
 ] as const;
 
 const SOCIAL_LINKS: readonly SocialLink[] = [
@@ -43,6 +51,8 @@ const SOCIAL_LINKS: readonly SocialLink[] = [
  * Site footer with navigation and social links.
  */
 export default function Footer(): React.JSX.Element {
+  const currentYear = new Date().getFullYear();
+
   return (
     <footer
       role="contentinfo"
@@ -59,13 +69,13 @@ export default function Footer(): React.JSX.Element {
           </Link>
         </div>
 
-        {/* Expertise */}
-        <nav aria-labelledby="footer-expertise">
-          <h3 id="footer-expertise" className="text-neutral-200 mb-4">
-            Expertise
+        {/* Work */}
+        {/* <nav aria-labelledby="footer-work">
+          <h3 id="footer-work" className="text-neutral-200 mb-4">
+            Work
           </h3>
           <ul className="space-y-2 text-neutral-300">
-            {EXPERTISE_LINKS.map((link) => (
+            {WORK_LINKS.map((link) => (
               <li key={link.href}>
                 <Link
                   href={link.href}
@@ -76,10 +86,29 @@ export default function Footer(): React.JSX.Element {
               </li>
             ))}
           </ul>
-        </nav>
+        </nav> */}
+
+        {/* Services */}
+        {/* <nav aria-labelledby="footer-services">
+          <h3 id="footer-services" className="text-neutral-200 mb-4">
+            Services
+          </h3>
+          <ul className="space-y-2 text-neutral-300">
+            {SERVICES_LINKS.map((link) => (
+              <li key={link.href}>
+                <Link
+                  href={link.href}
+                  className="hover:text-teal-400 transition-colors focus:outline-none focus:ring-2 focus:ring-teal-500 rounded-sm"
+                >
+                  {link.label}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </nav> */}
 
         {/* Studio */}
-        <nav aria-labelledby="footer-studio">
+        {/* <nav aria-labelledby="footer-studio">
           <h3 id="footer-studio" className="text-neutral-200 mb-3">
             Studio
           </h3>
@@ -95,10 +124,10 @@ export default function Footer(): React.JSX.Element {
               </li>
             ))}
           </ul>
-        </nav>
+        </nav> */}
 
         {/* Connect */}
-        <div aria-labelledby="footer-connect">
+        {/* <div aria-labelledby="footer-connect">
           <h3 id="footer-connect" className="text-neutral-200 mb-4">
             Connect
           </h3>
@@ -124,6 +153,22 @@ export default function Footer(): React.JSX.Element {
               </li>
             ))}
           </ul>
+          <div className="mt-6">
+            <a
+              href="mailto:hello@webqid.com"
+              className="text-neutral-400 hover:text-teal-400 transition-colors"
+            >
+              hello@webqid.com
+            </a>
+          </div>
+        </div> */}
+      </div>
+
+      {/* Copyright */}
+      <div className="border-t border-neutral-800/50">
+        <div className="container px-4 py-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-neutral-500 text-xs">
+          <p>© {currentYear} webqid. All rights reserved.</p>
+          {/* <p>Based in Netherlands, working globally.</p> */}
         </div>
       </div>
     </footer>
