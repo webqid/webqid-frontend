@@ -1,10 +1,4 @@
-# webqid.
-
-![webqid og-image](https://www.webqid.com/og-image.png)
-
-**Precision-built frontends engineered for trust, scalability, and performance.**
-
----
+# Christian van de Weerd.
 
 ## Shields and Badges
 
@@ -24,7 +18,7 @@
 
 ## Overview
 
-**webqid.** Senior Frontend Developer focused on technical minimalism, calm precision, and reliable systems. The site demonstrates shipped work, technical depth, and multiple conversion paths.
+**Christian van de Weerd.** Senior Frontend Developer focused on technical minimalism, calm precision, and reliable systems. The site demonstrates shipped work, technical depth, and multiple conversion paths.
 
 ### CV Style Themes
 
