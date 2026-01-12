@@ -1,11 +1,11 @@
-import CVPage from "@/components/CVPage";
+import GitHubCVPage from "@/components/GitHubCVPage";
 import CVStyleSwitch from "@/components/CVStyleSwitch";
 
 export default function Page() {
   return (
     <>
       <CVStyleSwitch />
-      <CVPage />
+      <GitHubCVPage />
     </>
   );
 }

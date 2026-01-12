@@ -26,6 +26,16 @@
 
 **webqid.** Senior Frontend Developer focused on technical minimalism, calm precision, and reliable systems. The site demonstrates shipped work, technical depth, and multiple conversion paths.
 
+### CV Style Themes
+
+The site features three distinct CV presentation styles, switchable via a dropdown in the top-right corner:
+
+| Theme | Route | Description |
+|-------|-------|-------------|
+| **Default** | `/` | Clean, minimal CV with elegant typography and subtle animations |
+| **Personal** | `/personal` | Netflix-inspired cinematic design with bold visuals and scroll effects |
+| **GitHub** | `/github` | GitHub profile-style layout with contribution graph and repository cards |
+
 Built with:
 
 - **Next.js 16.1.1** (App Router, Turbopack)
@@ -64,7 +74,11 @@ Built with:
 ```
 app/
   ├── layout.tsx              # Root layout with fonts and providers
-  ├── page.tsx                # Landing page
+  ├── page.tsx                # Default CV landing page
+  ├── personal/
+  │   └── page.tsx            # Netflix-inspired CV with cinematic design
+  ├── github/
+  │   └── page.tsx            # GitHub-inspired CV with repository-style design
   ├── robots.ts               # SEO robots
   └── sitemap.ts              # SEO sitemap
 
@@ -84,16 +98,20 @@ components/
   │   ├── SectionTitle.tsx
   │   ├── SectionParagraph.tsx
   │   └── SolutionCard.tsx
+  ├── CVPage.tsx              # Default CV page component
+  ├── PersonalCVPage.tsx      # Netflix-inspired CV with modern animations
+  ├── GitHubCVPage.tsx        # GitHub-inspired CV with contribution graph
+  ├── CVStyleSwitch.tsx       # CV style switcher (navigates between CV themes)
   ├── Nav.tsx                 # Navigation (live links only)
   ├── Footer.tsx              # Footer (live links, social)
-  ├── case-study/             # Case study components (Hero, StatsBar, TechStack, Gallery)
-  ├── Carousel.tsx            # Custom carousel
   ├── ExpertiseSlider.tsx     # Skill level indicators
   ├── TechMarquee.tsx         # Tech stack marquee
   ├── ProfileCard.tsx         # Profile card
   ├── PayOff.tsx              # Tagline component
   └── SmoothScrollProvider.tsx # Lenis scroll wrapper
 
+data/
+  └── cv-data.ts              # CV data (skills, experience, education, languages)
 
 e2e/
   └── home.spec.ts            # Playwright E2E tests

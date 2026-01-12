@@ -2,8 +2,6 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono, IBM_Plex_Serif } from "next/font/google";
 import "../styles/globals.css";
 
-import Footer from "@/components/Footer";
-import Nav from "@/components/Nav";
 import { SmoothScrollProvider } from "@/components/SmoothScrollProvider";
 
 const geistSans = Geist({
@@ -102,14 +100,10 @@ export default function RootLayout({
 
         <SmoothScrollProvider />
 
-        <Nav aria-label="Primary navigation" />
-
         {/* Main landmark */}
         <main id="main-content" className="flex-1">
           {children}
         </main>
-
-        <Footer aria-label="Footer" />
       </body>
     </html>
   );
