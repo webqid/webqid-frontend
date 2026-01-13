@@ -1,13 +1,14 @@
 import CVPage from "@/components/CVPage";
 import GitHubCVPage from "@/components/GitHubCVPage";
 import PersonalCVPage from "@/components/PersonalCVPage";
+import CreativeCVPage from "@/components/CreativeCVPage";
 import CVStyleSwitch from "@/components/CVStyleSwitch";
 import Link from "next/link";
 
 // Ensure fresh render each time (no caching)
 export const dynamic = "force-dynamic";
 
-const pages = [CVPage, GitHubCVPage, PersonalCVPage];
+const pages = [CVPage, GitHubCVPage, PersonalCVPage, CreativeCVPage];
 
 export default function Page() {
   const randomIndex = Math.floor(Math.random() * pages.length);

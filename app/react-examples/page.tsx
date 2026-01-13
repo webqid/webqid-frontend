@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "React Cheatsheet — webqid",
+  title: "React Cheatsheet — Christian van de Weerd",
   description: "React hooks and patterns code snippets with examples.",
 };
 
@@ -1037,7 +1037,7 @@ const Settings = lazy(() => import("./Settings"));
         </nav>
 
         <footer className="text-center text-gray-500 pt-8">
-          <p>React Cheatsheet — webqid</p>
+          <p>React Cheatsheet</p>
         </footer>
       </div>
     </div>

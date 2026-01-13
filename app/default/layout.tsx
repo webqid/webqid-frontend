@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Default CV — webqid",
+  title: "Default CV — Christian van de Weerd",
   description: "Default style developer profile and experience overview.",
 };
 

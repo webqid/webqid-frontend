@@ -19,7 +19,7 @@ export default function Footer(): React.JSX.Element {
             href="/"
             className="absolute -top-3 text-2xl font-medium text-neutral-200 focus:outline-none focus:ring-2 focus:ring-teal-500 rounded-sm"
           >
-            webqid<span className="text-teal-500 font-serif">.</span>
+            @jcvandeweerd<span className="text-teal-500 font-serif">.</span>
           </Link>
         </div>
 
@@ -29,7 +29,7 @@ export default function Footer(): React.JSX.Element {
       {/* Copyright */}
       <div className="border-t border-neutral-800/50">
         <div className="container px-4 py-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-neutral-500 text-xs">
-          <p>© {currentYear} webqid. All rights reserved.</p>
+          <p>© {currentYear} @jcvandeweerd. All rights reserved.</p>
           {/* <p>Based in Netherlands, working globally.</p> */}
         </div>
       </div>

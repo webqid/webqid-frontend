@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "TypeScript Cheatsheet — webqid",
+  title: "TypeScript Cheatsheet — Christian van de Weerd",
   description: "TypeScript types, utilities, and patterns with examples.",
 };
 
@@ -1219,7 +1219,7 @@ Array.prototype.customMethod = function() {
         </nav>
 
         <footer className="text-center text-gray-500 pt-8">
-          <p>TypeScript Cheatsheet — webqid</p>
+          <p>TypeScript Cheatsheet</p>
         </footer>
       </div>
     </div>

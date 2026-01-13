@@ -6,6 +6,7 @@ const CV_STYLES = [
   { value: "/default", label: "Default" },
   { value: "/personal", label: "Personal" },
   { value: "/github", label: "GitHub" },
+  { value: "/creative", label: "Creative" },
 ] as const;
 
 export default function CVStyleSwitch() {
