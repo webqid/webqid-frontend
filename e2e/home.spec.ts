@@ -2,7 +2,7 @@ import { test, expect } from "@playwright/test";
 
 test.describe("Default CV Page", () => {
   test.beforeEach(async ({ page }) => {
-    await page.goto("/", { waitUntil: "domcontentloaded" });
+    await page.goto("/default", { waitUntil: "domcontentloaded" });
   });
 
   test.describe("CV Style Switch", () => {
@@ -13,13 +13,13 @@ test.describe("Default CV Page", () => {
 
     test("should have default option selected", async ({ page }) => {
       const styleSwitch = page.locator("select");
-      await expect(styleSwitch).toHaveValue("/");
+      await expect(styleSwitch).toHaveValue("/default");
     });
 
     test("should display all CV style options", async ({ page }) => {
       const styleSwitch = page.locator("select");
       await expect(styleSwitch.locator("option")).toHaveCount(3);
-      await expect(styleSwitch.locator("option[value='/']")).toHaveText("Default");
+      await expect(styleSwitch.locator("option[value='/default']")).toHaveText("Default");
       await expect(styleSwitch.locator("option[value='/personal']")).toHaveText("Personal");
       await expect(styleSwitch.locator("option[value='/github']")).toHaveText("GitHub");
     });
@@ -370,15 +370,15 @@ test.describe("CV Style Switch Navigation", () => {
     await page.goto("/github", { waitUntil: "domcontentloaded" });
     
     const styleSwitch = page.locator("select");
-    await styleSwitch.selectOption("/");
+    await styleSwitch.selectOption("/default");
     
-    await page.waitForURL("/", { timeout: 10000 });
+    await page.waitForURL("/default", { timeout: 10000 });
     await expect(page.getByRole("heading", { name: "Christian van de Weerd", level: 1 })).toBeVisible();
   });
 
   test("CV style switch should be visible on mobile", async ({ page }) => {
     await page.setViewportSize({ width: 375, height: 667 });
-    await page.goto("/", { waitUntil: "domcontentloaded" });
+    await page.goto("/default", { waitUntil: "domcontentloaded" });
     
     const styleSwitch = page.locator("select");
     await expect(styleSwitch).toBeVisible();

@@ -26,9 +26,19 @@ The site features three distinct CV presentation styles, switchable via a dropdo
 
 | Theme | Route | Description |
 |-------|-------|-------------|
-| **Default** | `/` | Clean, minimal CV with elegant typography and subtle animations |
+| **Random** | `/` | Randomly selects one of the three CV styles on each visit |
+| **Default** | `/default` | Clean, minimal CV with elegant typography and subtle animations |
 | **Personal** | `/personal` | Netflix-inspired cinematic design with bold visuals and scroll effects |
 | **GitHub** | `/github` | GitHub profile-style layout with contribution graph and repository cards |
+
+### Developer Cheatsheets
+
+Interactive reference pages for React and TypeScript patterns:
+
+| Cheatsheet | Route | Description |
+|------------|-------|-------------|
+| **React** | `/react-examples` | Hooks, custom hooks, and component patterns |
+| **TypeScript** | `/typescript-examples` | Types, utilities, generics, and advanced patterns |
 
 Built with:
 
@@ -68,11 +78,17 @@ Built with:
 ```
 app/
   ├── layout.tsx              # Root layout with fonts and providers
-  ├── page.tsx                # Default CV landing page
+  ├── page.tsx                # Random CV selection (default/personal/github)
+  ├── default/
+  │   └── page.tsx            # Default CV landing page
   ├── personal/
   │   └── page.tsx            # Netflix-inspired CV with cinematic design
   ├── github/
   │   └── page.tsx            # GitHub-inspired CV with repository-style design
+  ├── react-examples/
+  │   └── page.tsx            # React hooks and patterns cheatsheet
+  ├── typescript-examples/
+  │   └── page.tsx            # TypeScript types and patterns cheatsheet
   ├── robots.ts               # SEO robots
   └── sitemap.ts              # SEO sitemap
 

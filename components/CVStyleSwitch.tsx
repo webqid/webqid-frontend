@@ -3,7 +3,7 @@
 import { usePathname, useRouter } from "next/navigation";
 
 const CV_STYLES = [
-  { value: "/", label: "Default" },
+  { value: "/default", label: "Default" },
   { value: "/personal", label: "Personal" },
   { value: "/github", label: "GitHub" },
 ] as const;
@@ -12,7 +12,10 @@ export default function CVStyleSwitch() {
   const pathname = usePathname();
   const router = useRouter();
 
-  const currentStyle = CV_STYLES.find((style) => style.value === pathname)?.value ?? "/";
+  // Map "/" to "/default" for display purposes
+  const currentStyle =
+    CV_STYLES.find((style) => style.value === pathname)?.value ??
+    (pathname === "/" ? "/default" : "/default");
 
   const handleChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     router.push(e.target.value);

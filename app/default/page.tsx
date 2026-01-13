@@ -1,4 +1,4 @@
-import PersonalCVPage from "@/components/PersonalCVPage";
+import CVPage from "@/components/CVPage";
 import CVStyleSwitch from "@/components/CVStyleSwitch";
 import Link from "next/link";
 
@@ -6,7 +6,7 @@ export default function Page() {
   return (
     <>
       <CVStyleSwitch />
-      <PersonalCVPage />
+      <CVPage />
       <nav className="fixed bottom-4 right-4 flex gap-2 z-50">
         <Link
           href="/react-examples"
