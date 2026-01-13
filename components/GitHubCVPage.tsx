@@ -89,7 +89,7 @@ export default function GitHubCVPage(): React.JSX.Element {
                 <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 16 16">
                   <path d="M1.5 8a6.5 6.5 0 1113 0 6.5 6.5 0 01-13 0zM8 0a8 8 0 100 16A8 8 0 008 0z" />
                 </svg>
-                <span className="text-[#e6edf3]">webqid</span>
+                <span className="text-[#e6edf3]">website</span>
               </div>
               <div className="flex items-center gap-2 text-[#8b949e]">
                 <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 16 16">

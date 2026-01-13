@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono, IBM_Plex_Serif } from "next/font/google";
-import "../styles/globals.css";
+import "@/styles/globals.css";
 
 import { SmoothScrollProvider } from "@/components/SmoothScrollProvider";
 
@@ -29,7 +29,7 @@ const ibmPlexSerif = IBM_Plex_Serif({
 });
 
 export const metadata: Metadata = {
-  title: "webqid. — Precision-built Web frontends engineered for trust",
+  title: "webqid. Precision-built Web frontends engineered for trust",
   description:
     "webqid builds high-performance frontends where clarity, speed, and precision meet. Minimalist. Scalable. Built with intent.",
   keywords: [
@@ -47,7 +47,7 @@ export const metadata: Metadata = {
     icon: "/favicon.ico",
   },
   openGraph: {
-    title: "webqid. — Precision-built Web frontends engineered for trust",
+    title: "webqid. Precision-built Web frontends engineered for trust",
     description:
       "Turning on-chain complexity into fast, reliable, and elegant interfaces. Built with intent.",
     url: "https://webqid.com",

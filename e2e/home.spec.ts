@@ -18,10 +18,11 @@ test.describe("Default CV Page", () => {
 
     test("should display all CV style options", async ({ page }) => {
       const styleSwitch = page.locator("select");
-      await expect(styleSwitch.locator("option")).toHaveCount(3);
+      await expect(styleSwitch.locator("option")).toHaveCount(4);
       await expect(styleSwitch.locator("option[value='/default']")).toHaveText("Default");
       await expect(styleSwitch.locator("option[value='/personal']")).toHaveText("Personal");
       await expect(styleSwitch.locator("option[value='/github']")).toHaveText("GitHub");
+      await expect(styleSwitch.locator("option[value='/creative']")).toHaveText("Creative");
     });
   });
 

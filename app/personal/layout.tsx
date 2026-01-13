@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Personal — webqid",
+  title: "Personal — Christian van de Weerd",
   description: "Personal information and details.",
 };
 

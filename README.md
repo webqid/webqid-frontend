@@ -22,14 +22,15 @@
 
 ### CV Style Themes
 
-The site features three distinct CV presentation styles, switchable via a dropdown in the top-right corner:
+The site features four distinct CV presentation styles, switchable via a dropdown in the top-right corner:
 
 | Theme | Route | Description |
 |-------|-------|-------------|
-| **Random** | `/` | Randomly selects one of the three CV styles on each visit |
+| **Random** | `/` | Randomly selects one of the four CV styles on each visit |
 | **Default** | `/default` | Clean, minimal CV with elegant typography and subtle animations |
 | **Personal** | `/personal` | Netflix-inspired cinematic design with bold visuals and scroll effects |
 | **GitHub** | `/github` | GitHub profile-style layout with contribution graph and repository cards |
+| **Creative** | `/creative` | Experimental, animation-heavy experience with GSAP, parallax, particles, glitch effects, and magnetic buttons |
 
 ### Developer Cheatsheets
 
@@ -78,13 +79,15 @@ Built with:
 ```
 app/
   ├── layout.tsx              # Root layout with fonts and providers
-  ├── page.tsx                # Random CV selection (default/personal/github)
+  ├── page.tsx                # Random CV selection (default/personal/github/creative)
   ├── default/
   │   └── page.tsx            # Default CV landing page
   ├── personal/
   │   └── page.tsx            # Netflix-inspired CV with cinematic design
   ├── github/
   │   └── page.tsx            # GitHub-inspired CV with repository-style design
+  ├── creative/
+  │   └── page.tsx            # Animation-heavy CV with GSAP and particles
   ├── react-examples/
   │   └── page.tsx            # React hooks and patterns cheatsheet
   ├── typescript-examples/
@@ -111,6 +114,7 @@ components/
   ├── CVPage.tsx              # Default CV page component
   ├── PersonalCVPage.tsx      # Netflix-inspired CV with modern animations
   ├── GitHubCVPage.tsx        # GitHub-inspired CV with contribution graph
+  ├── CreativeCVPage.tsx      # Animation-heavy CV with GSAP, particles, glitch effects
   ├── CVStyleSwitch.tsx       # CV style switcher (navigates between CV themes)
   ├── Nav.tsx                 # Navigation (live links only)
   ├── Footer.tsx              # Footer (live links, social)
